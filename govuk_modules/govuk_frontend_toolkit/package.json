@@ -1,0 +1,44 @@
+{
+  "name": "govuk_frontend_toolkit",
+  "version": "4.14.1",
+  "description": "npm package for using the GOV.UK frontend toolkit",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alphagov/govuk_frontend_toolkit_npm.git"
+  },
+  "author": {
+    "name": "Government Digital Service developers",
+    "email": "govuk-dev@digital.cabinet-office.gov.uk"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alphagov/govuk_frontend_toolkit/issues"
+  },
+  "gitHead": "51a64d4f76ab0cc6d0cbd86dcce63f15d9d99a06",
+  "homepage": "https://github.com/alphagov/govuk_frontend_toolkit_npm",
+  "_id": "govuk_frontend_toolkit@4.14.1",
+  "scripts": {},
+  "_shasum": "d26b3f1550543804a01efd46a7e680d4b7fb81cb",
+  "_from": "govuk_frontend_toolkit@>=4.14.1 <5.0.0",
+  "_npmVersion": "1.4.28",
+  "_npmUser": {
+    "name": "alphagov",
+    "email": "govuk-dev@digital.cabinet-office.gov.uk"
+  },
+  "maintainers": [
+    {
+      "name": "alphagov",
+      "email": "govuk-dev@digital.cabinet-office.gov.uk"
+    }
+  ],
+  "dist": {
+    "shasum": "d26b3f1550543804a01efd46a7e680d4b7fb81cb",
+    "tarball": "https://registry.npmjs.org/govuk_frontend_toolkit/-/govuk_frontend_toolkit-4.14.1.tgz"
+  },
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/govuk_frontend_toolkit-4.14.1.tgz_1470239303467_0.3200882396195084"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/govuk_frontend_toolkit/-/govuk_frontend_toolkit-4.14.1.tgz"
+}
