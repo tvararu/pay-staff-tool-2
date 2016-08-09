@@ -3,7 +3,7 @@
 @import 'measurements';
 @import 'shims';
 
-$site-width: 960px;
+$site-width: 1200px;
 
 // An extendable selector to wrap your entire site content block
 // It limits the sites width to be 960px wide and maintains consistent margins
@@ -118,7 +118,7 @@ $site-width: 960px;
   @extend %contain-floats;
 
   @include ie-lte(8) {
-    width: 1020px;
+    width: 1200px;
   }
 }
 
