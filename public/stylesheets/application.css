@@ -4210,7 +4210,7 @@ a#logo::after {
 }
 
 .status-column {
-  width: 280px;
+  width: 270px;
 }
 
 .service-name {
@@ -4328,6 +4328,7 @@ tr.clickable-row:hover {
   display: list-item;
   list-style: none;
   color: #6F777B;
+  font-size: 14px;
 }
 
 .refund-label {
@@ -4338,6 +4339,7 @@ tr.clickable-row:hover {
   padding-right: 5px;
   padding-top: 2px;
   margin-left: 10px;
+  padding-bottom: 2px;
 }
 
 .disputed-label {
@@ -4348,6 +4350,7 @@ tr.clickable-row:hover {
   padding-right: 5px;
   padding-top: 2px;
   margin-left: 10px;
+  padding-bottom: 2px;
 }
 
 ::-webkit-input-placeholder {
