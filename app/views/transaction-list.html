@@ -11,7 +11,7 @@
 		{% include "includes/utility-navigation.html" %}
 	</div>
 <div class="grid-row">
-	<div class="column-quarter">
+	<div class="column-quarter"> 
 
 		{% include "includes/left-navigation.html" %}		
 	</div>
@@ -123,9 +123,9 @@
 	    			45,896 transactions 
 	  			</h2>
 	  			<p><a href="transaction-list">Download a spreadsheet of these transactions</a></p>
-	  			<img class="" src="/public/images/next-page.png">
+	  			<img class="page-numbers" src="/public/images/next-page.png">
   			</div>
-
+  			<div class="table-list">
 		      	<table>
 				    <thead>
 				      <tr>
@@ -137,28 +137,28 @@
 				      </tr>
 				    </thead>
 				    <tbody>
-				      <tr class='clickable-row' data-href='http://pay-staff-tool.herokuapp.com/staff-transaction-detail'>
+				      <tr class='clickable-row' data-href='/transaction-detail'>
 				        <td>DV722045</td>
 				        <td>£116.00</td>
 				        <td>Visa</td>
 				        <td>Successful<span class="refund-label">Partially refunded: £90.00</span></td>
 				        <td>6 Dec 2015 – 12:45</td>
 				      </tr>
-				      <tr class='clickable-row' data-href='http://pay-staff-tool.herokuapp.com/staff-transaction-detail'>
+				      <tr class='clickable-row' data-href='/transaction-detail'>
 				        <td>DV786340</td>
 				        <td>£55.00</td>
 				        <td>Visa</td>
 				        <td>Successful</td>      
 				        <td>6 Dec 2015 – 12:44</td>
 				      </tr>
-				      <tr class='clickable-row' data-href='#'>
+				      <tr class='clickable-row' data-href='/transaction-detail'>
 				        <td>DV786290</td>
 				        <td>£55.00</td>
 				        <td>Visa</td>
 				        <td>Successful</td>      
 				        <td>6 Dec 2015 – 12:44</td>
 				      </tr>
-				      <tr class='clickable-row' data-href='#'>
+				      <tr class='clickable-row' data-href='/transaction-detail'>
 				        <td>DV784490</td>
 				        <td>£55.00</td>
 				        <td>Visa</td>
@@ -258,6 +258,7 @@
 				      </tr>
 				    </tbody>
   				</table>
+  			</div>
 	</div>
 </div>
 </main>

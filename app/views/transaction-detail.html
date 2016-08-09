@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Transaction list
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+	<div class="grid-row">
+		{% include "includes/utility-navigation.html" %}
+	</div>
+<div class="grid-row">
+	<div class="column-quarter">
+
+		{% include "includes/left-navigation.html" %}		
+	</div>
+
+	    <div class="column-three-quarters">
+	      <h1 class="heading-large underline">Transactions</h1>
+	      	<div class="overview">
+	      	<div class="back">
+				<a href="javascript:history.back()">&#9664; Back</a>
+			</div>
+	      		<h2 class="heading-medium staff-subheading">
+    				Transaction detail
+  				</h2>
+			 </div>
+
+			<div class="column-three-quarters filter-fields">
+
+		    <table>
+		      	<tbody>
+			      	<tr>
+			      		<td>Reference Number:</td> 
+			      		<td>DV166247</td>
+			      	</tr>
+			      	<tr>
+						<td>Amount:</td>
+						<td>£116.00</td>
+					</tr>
+					<tr>
+						<td>Status:</td> 
+						<td>Successful payment</td>
+					</tr>
+					<tr>
+						<td>Method:</td>
+						 <td>Debit card</td>
+					</tr>
+					<tr>
+						<td>Provider:</td>
+						<td>Barclays</td>
+					</tr>
+					<tr>
+						<td>Time:</td>
+						<td>18 Sep 2015 — 18:13:39</td>
+					</tr>
+					<tr>
+						<td>Transaction ID:</td>
+						 <td>20150602153345</td>
+					</tr>
+					<tr>
+						<td>Payment ID:</td> 
+						<td>42250259</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="heading-medium">Transaction events</h2>
+
+			<table>
+		      	<tbody>
+			      	<tr>
+						<td>Success: Payment captured</td>
+						<td>£116.00</td>
+						<td>18 Sep 2015 18:13:39</td>
+					</tr>
+			      	<tr>
+						<td>In progress: Capture submitted</td>
+						<td>£116.00</td>
+						<td>18 Sep 2015 18:13:38</td>
+					</tr>
+					<tr>
+						<td>In progress: Authorisation succeeded</td>
+						<td>£116.00</td> 
+						<td>18 Sep 2015 18:13:29</td>
+					</tr>
+					<tr>
+						<td>In progress: Authorisation submitted</td>
+						<td>£116.00</td> 
+						<td>18 Sep 2015 18:13:28</td>
+					</tr>
+					<tr>
+						<td>In progress: Authorisation refused</td>
+						<td>£116.00</td> 
+						<td>18 Sep 2015 18:12:58</td>
+					</tr>
+					<tr>
+						<td>In progress: Authorisation submitted</td>
+						<td>£116.00</td> 
+						<td>18 Sep 2015 18:12:57</td>
+					</tr>
+					<tr>
+						<td>In progress: Entering card details</td>
+						<td>£116.00</td> 
+						<td>18 Sep 2015 18:12:56</td>
+					</tr>
+					<tr>
+						<td>Created</td>
+						<td>£116.00</td> 
+						<td>18 Sep 2015 18:12:34</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="heading-medium"></h2>
+
+			<details>
+			    <summary><span class="summary">View logs</span></summary>
+			    <div class="panel panel-border-narrow">
+			      <table>
+		      	<tbody>
+			     	<tr>
+			      		<td>200</td> 
+			      		<td>POST/v1/charges/ch_16786t9823rjhjf9q9797rihkjhsoivh/refunds</td>
+			      		<td>30 Sep 2015 11:15:32</td>
+			      	</tr>
+			      	<tr>
+						<td>200</td>
+						<td>POST/v1/charges/ch_16786t9823rjhjf9q9797rihkjhsoivh/refunds</td>
+						<td>18 Sep 2015 18:12:38</td>
+					</tr>
+					<tr>
+						<td>200</td> 
+						<td>POST/v1/charges/</td>
+						<td>18 Sep 2015 18:12:34</td>
+					</tr>
+					<tr>
+						<td>200</td> 
+						<td>POST/v1/ctokens</td>
+						<td>18 Sep 2015 18:12:34</td>
+					</tr>
+				</tbody>
+			</table>
+			    </div>
+  			</details>
+
+		</div>
+	</div>
+</div>
+</main>
+
+{% endblock %}
