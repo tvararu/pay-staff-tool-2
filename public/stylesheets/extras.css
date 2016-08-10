@@ -2114,7 +2114,7 @@ a#logo::after {
 }
 
 .status-column {
-  width: 270px;
+  width: 200px;
 }
 
 .service-name {
@@ -2229,21 +2229,38 @@ tr.clickable-row:hover {
 }
 
 .error-code {
+  font-size: 14px;
+  border-left: 5px solid #6F777B;
+  margin-top: 10px;
   display: list-item;
   list-style: none;
   color: #6F777B;
-  font-size: 14px;
+  padding-left: 5px;
+  padding-top: 2px;
 }
 
 .refund-label {
   color: #B10E1E;
   font-size: 14px;
-  border: 2px solid #B10E1E;
+  border-left: 5px solid #B10E1E;
   padding-left: 5px;
-  padding-right: 5px;
   padding-top: 2px;
-  margin-left: 10px;
-  padding-bottom: 2px;
+  margin-top: 10px;
+  display: list-item;
+  list-style: none;
+}
+
+.refund-button-area {
+  vertical-align: right;
+  margin-left: 20px;
+}
+
+.refund-button {
+  background-color: #B10E1E;
+}
+
+.refund-button:hover {
+  background-color: #800000;
 }
 
 .disputed-label {
