@@ -21,6 +21,7 @@
       spreadsheetId: '1KThLEWTiXyl4j7AueDXq3FOKr_rkoZ57Db6kKChe0LA',
       range: 'Dataset0.1!A2:R101',
     }).then(function(response) {
+      $("body").addClass("gs-data-loaded");
       var range = response.result;
       if (range.values.length > 0) {
         console.log(range.values[0]);
