@@ -17,9 +17,11 @@
    * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
    */
   function listMajors() {
+    var rowNo = parseInt(location.hash.substring(1))+1 || 2;
+    console.log("Row number: " + rowNo);
     gapi.client.sheets.spreadsheets.values.get({
       spreadsheetId: '1KThLEWTiXyl4j7AueDXq3FOKr_rkoZ57Db6kKChe0LA',
-      range: 'Dataset0.1!A2:R2',
+      range: 'Dataset0.1!A'+rowNo+':R'+rowNo,
     }).then(function(response) {
       var range = response.result;
       if (range.values.length > 0) {

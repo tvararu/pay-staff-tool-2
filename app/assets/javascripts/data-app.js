@@ -27,6 +27,7 @@
         for (i = 0; i < range.values.length; i++) {
           var row = range.values[i];
           var item = {
+            "row": i + 1,
             "reference": row[0],
             "email": row[3],
             "amount": row[4],
