@@ -17,6 +17,32 @@
       </button>
     </div>
 
-    <div id="detail-item"></div>
+    <!-- top navigation -->
+    <div class="grid-row">
+      {% include "includes/utility-navigation.html" %}
+    </div>
+
+    <div class="grid-row">
+
+      <!-- left nav panel -->
+      <div class="column-quarter">
+        {% include "includes/left-navigation.html" %}
+      </div>
+
+      <!-- main content of page -->
+      <div class="column-three-quarters">
+        <h1 class="heading-large underline">Transactions</h1>
+        <div class="overview">
+          <div class="back">
+            <a href="javascript:history.back()">&#9664; Back</a>
+          </div>
+          <h2 class="heading-medium staff-subheading">
+            Transaction detail
+          </h2>
+        </div>
+
+        <div id="detail-item" class="column-three-quarters filter-fields"></div>
+      </div>
+    </div>
   </main>
   {% endblock %}
