@@ -35,7 +35,11 @@
             "amount": row[4],
             "card": row[7],
             "status": row[5],
-            "startDate": row[11]
+            "startDate": row[11],
+            "payId": row[10],
+            "startEnter": row[12],
+            "authSubmit": row[13],
+            "authSucceed": row[14]
           };
           // Print columns A and E, which correspond to indices 0 and 4.
           appendPre(item);
@@ -56,6 +60,7 @@
    */
   function appendPre(message) {
     $details_container.append( jQuery.parseHTML( nunjucks.render('details-item.html', message) ) );
+    $(".trans-evs-heading").after( jQuery.parseHTML( nunjucks.render('transaction-events.html', message) ) );
   }
 
   $(function() {
