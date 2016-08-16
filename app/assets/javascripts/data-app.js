@@ -34,6 +34,7 @@
             "amount": row[4],
             "card": row[7],
             "status": row[5],
+            "subStatus": row[6],
             "startDate": row[11]
           };
           // Print columns A and E, which correspond to indices 0 and 4.

@@ -3,6 +3,11 @@
   <td>{{ email }}</td>
   <td>{{ amount }}</td>
   <td>{{ card }}</td>
-  <td>{{ status }}</td>
+  <td>{{ status }}
+    {% if status == "Failed" %}
+    <span class="error-code">Error P0050 – {{ subStatus }}</span>
+    {% endif %}
+  </td>
   <td>{{ startDate }}</td>
 </tr>
+
