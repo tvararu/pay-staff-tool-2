@@ -73,10 +73,16 @@
     $table.append( jQuery.parseHTML( nunjucks.render('list-item.html', message) ) );
   }
 
+  function navigateTo(evt) {
+    window.document.location = $(this).data("href");
+  }
+
   $(function() {
     // on dom ready, kick it all off
     $table = $('#transaction-table').find("tbody");
     init_app();
+
+    $("#transaction-table").on('click', '.clickable-row', navigateTo);
   });
-  
+
 }).call(this, jQuery, window);
