@@ -2838,3 +2838,16 @@ h2.heading-paypoint {
 body {
   font-family: "nta" !important;
 }
+
+.pre-load-marker {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.pre-load-marker img {
+  margin-bottom: 15px;
+}
+
+.gs-data-loaded .pre-load-marker {
+  display: none;
+}
