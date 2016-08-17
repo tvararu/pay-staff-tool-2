@@ -1,6 +1,6 @@
 <tr class='clickable-row' data-href='/sheets-detail#{{ row|default("1") }}'>
   <td><a href="/sheets-detail#{{ row|default("1") }}">{{ reference }}</a></td>
-  <td>{{ email }}</td>
+  <td>{{ email|truncate(20) }}</td>
   <td>£{{ amount }}.00</td>
   <td>{{ card }}</td>
   <td>{{ status }}
