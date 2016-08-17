@@ -1,0 +1,13 @@
+<tr class='clickable-row' data-href='#'>
+  <td><a href="/sheets-detail#{{ row|default("1") }}">{{ reference }}</td>
+  <td>{{ email }}</td>
+  <td>£{{ amount }}.00</td>
+  <td>{{ card }}</td>
+  <td>{{ status }}
+    {% if status == "Failed" %}
+    <span class="error-code">Error P0050 – {{ subStatus }}</span>
+    {% endif %}
+  </td>
+  <td>{{ startDate }}</td>
+</tr>
+

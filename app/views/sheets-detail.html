@@ -1,0 +1,78 @@
+{% extends "govuk_template.html" %}
+  {% block head %}
+    {% include "includes/head.html" %}
+    <script src="/public/javascripts/jquery-1.11.3.js"></script>
+    <script src="/public/javascripts/nunjucks.min.js"></script>
+    <script src="/public/javascripts/templates.js"></script>
+    <script src="/public/javascripts/google-sheets.js"></script>
+    <script src="/public/javascripts/data-app-detail.js"></script>
+  {% endblock %}
+
+  {% block content %}
+  <main id="content" role="main">
+    <div id="authorize-div" style="display: none">
+      <span>Authorize access to Google Sheets API</span>
+      <!--Button for the user to click to initiate auth sequence -->
+      <button id="authorize-button" onclick="handleAuthClick(event)">
+        Authorize
+      </button>
+    </div>
+
+    <!-- top navigation -->
+    <div class="grid-row">
+      {% include "includes/utility-navigation.html" %}
+    </div>
+
+    <div class="grid-row">
+
+      <!-- left nav panel -->
+      <div class="column-quarter">
+        {% include "includes/left-navigation.html" %}
+      </div>
+
+      <!-- main content of page -->
+      <div class="column-three-quarters">
+        <h1 class="heading-large underline">Transactions</h1>
+        <div class="overview">
+          <div class="back">
+            <a href="javascript:history.back()">&#9664; Back</a>
+          </div>
+          <h2 class="heading-medium staff-subheading">
+            Transaction detail
+          </h2>
+        </div>
+
+        <div class="column-three-quarters filter-fields">
+          <div id="detail-item">
+            {% include "includes/loader.html" %}
+          </div>
+          
+          <h2 class="trans-evs-heading heading-medium">Transaction events</h2>
+
+          <h2 class="heading-medium"></h2>
+
+          <details>
+            <summary><span class="summary">View logs</span></summary>
+            <div class="panel panel-border-narrow">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>200</td>
+                    <td>POST/v1/charges/</td>
+                    <td>1 Jul 2016 – 12:45</td>
+                  </tr>
+                  <tr>
+                    <td>200</td> 
+                    <td>POST/v1/ctokens</td>
+                    <td>1 Jul 2016 – 12:45</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </div>
+  </main>
+  {% endblock %}

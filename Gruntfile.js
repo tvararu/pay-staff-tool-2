@@ -64,6 +64,13 @@ module.exports = function(grunt){
           src: '**',
           dest: 'lib/'
         }]
+      },
+      templates: {
+        files: [{
+          cwd: 'app/views/includes/templates/',
+          src: '**',
+          dest: 'public/templates/'
+        }]
       }
     },
 
@@ -78,7 +85,7 @@ module.exports = function(grunt){
       },
       assets:{
         files: ['app/assets/**/*', '!app/assets/sass/**'],
-        tasks: ['sync:assets'],
+        tasks: ['sync:assets', 'sync:templates'],
         options: {
           spawn: false,
         }

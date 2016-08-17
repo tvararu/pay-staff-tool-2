@@ -843,3 +843,16 @@ body {
 	font-family: "nta" !important;
 }
 
+.pre-load-marker {
+  margin-top: $gutter;
+  text-align: center;
+
+  img {
+    margin-bottom: $gutter-half;
+  }
+
+  .gs-data-loaded & {
+    display: none;
+  }
+}
+
