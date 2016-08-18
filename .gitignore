@@ -1,0 +1,4 @@
+# ignore all public dir, everything is copied here on 'npm start'
+public/
+
+node_modules/
