@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK payment page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">GOV.UK Pay</h1>
+
+      <p>
+        Making it easier for citizens and businesses to pay government.
+      </p>
+
+      <p>
+        If you work for a UK government department or agency you can try it now.
+      </p>
+
+      <div class="form-group">
+          <a href="/register">
+            <input class="button" type="submit" value="Create an account">
+          </a>  
+      </div>
+      <p>
+        If you’ve used GOV.UK Pay before, <a href="/sign-in">sign in to your account</a>.
+      </p>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+

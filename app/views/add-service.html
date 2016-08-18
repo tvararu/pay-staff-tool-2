@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK payment page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-half">
+  
+   <form action="dashboard" class="form">
+
+    <h1 class="form-title heading-large">
+      What service will you be integrating with GOV.UK Pay?
+    </h1>
+
+    <!-- Service Name -->
+     <div class="form-group">
+      <label class="form-label" for="service-name">
+        Service name
+        <span class="form-hint">
+          You can change this later
+        </span>
+      </label>
+      <input type="text" class="form-control" id="service-name">
+    </div>
+
+      <div class="form-group">
+             <input class="button" type="submit" value="Add service">
+      </div>
+
+    </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+
