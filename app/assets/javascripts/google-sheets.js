@@ -56,5 +56,8 @@ function handleAuthClick(event) {
 function loadSheetsApi() {
   var discoveryUrl =
       'https://sheets.googleapis.com/$discovery/rest?version=v4';
-  gapi.client.load(discoveryUrl).then(listMajors);
+
+  gapi.client.load(discoveryUrl).then( function() {
+    $(document).trigger('googlesheets.loaded');
+  });
 }

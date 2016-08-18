@@ -1,14 +1,7 @@
 ;(function($, window) {
-  var $table;
-  
-  function init_nunjucks() {
-    nunjucks.configure('/public/templates');
-  }
 
   function init_app() {
-    init_nunjucks();
-    // have to make this available to the google-sheets-helpers
-    window.listMajors = listMajors;
+    nunjucks.configure('/public/templates');
     $.getScript("https://apis.google.com/js/client.js?onload=checkAuth");
   }
 
@@ -51,13 +44,14 @@
   }
 
   /**
-   * Print the names and majors of students in a sample spreadsheet:
-   * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-   */
-  function listMajors() {
+  * Fetch sheets data and then render using given callback
+  *
+  * @param {func} a function to render data item
+  */
+  function fetchSheetsData( start, end, renderFunc ) {
     gapi.client.sheets.spreadsheets.values.get({
       spreadsheetId: '1KThLEWTiXyl4j7AueDXq3FOKr_rkoZ57Db6kKChe0LA',
-      range: 'Dataset0.1!A2:R101',
+      range: 'Dataset0.1!A'+start+':R'+end,
     }).then(function(response) {
       $("body").addClass("gs-data-loaded");
       var range = response.result;
@@ -67,43 +61,63 @@
           var row = range.values[i];
           var item = mapRowToObject(row, i+1);
 
-          // call render function
-          appendPre(item);
+          // call render function passed 
+          // to function
+          renderFunc( item );
         }
       } else {
-        appendPre('No data found.');
+        console.log('No data found.');
       }
     }, function(response) {
-      appendPre('Error: ' + response.result.error.message);
+      console.log('Error: ' + response.result.error.message);
     });
   }
 
   /**
-   * Append a pre element to the body containing the given message
-   * as its text node.
-   *
-   * @param {string} message Text to be placed in pre element.
-   */
-  function appendPre(message) {
-    console.log('append');
-    
-    //console.log( document.getElementById('nj-list-item-template').innerHTML );
-    //var iTemplate = nunjucks.compile( document.getElementById('nj-list-item-template').innerHTML );
-    //console.log(document.getElementById('nj-list-item-template').innerHTML);
-    //console.log(iTemplate.render(message));
-    $table.append( jQuery.parseHTML( nunjucks.render('list-item.html', message) ) );
-  }
-
+  * Navigate to provided url
+  */
   function navigateTo(evt) {
     window.document.location = $(this).data("href");
   }
 
+  // on DOM ready, kick it all off
   $(function() {
-    // on dom ready, kick it all off
-    $table = $('#transaction-table').find("tbody");
     init_app();
 
-    $("#transaction-table").on('click', '.clickable-row', navigateTo);
+    /**
+    * add right listener for google sheets api loading
+    * On load fetch data and render it
+    *
+    * replace {func} with rendering function you need
+    */
+    if ($("body").hasClass("transaction-list-view")) {
+      // LIST VIEW
+      var $table = $('#transaction-table').find("tbody");
+
+      // make rows of table clickable
+      $("#transaction-table").on('click', '.clickable-row', navigateTo);
+
+      $(document).on("googlesheets.loaded", function(evt) {
+        fetchSheetsData( 2, 101, function( data ) {
+          $table.append( jQuery.parseHTML( nunjucks.render('list-item.html', data) ) );
+        });
+      });
+
+    } else if ($("body").hasClass("transaction-detail-view")) {
+      // DETAIL VIEW
+      var $details_container = $('#detail-item'),
+          $transHeading = $(".trans-evs-heading"),
+          rowNo = parseInt(location.hash.substring(1))+1 || 2;
+
+      $(document).on("googlesheets.loaded", function(evt) {
+        fetchSheetsData( rowNo, rowNo, function( data ) {
+          $details_container.append( jQuery.parseHTML( nunjucks.render('details-item.html', data) ) );
+          $transHeading.after( jQuery.parseHTML( nunjucks.render('transaction-events.html', data) ) );
+        });
+      });
+
+    }
+
   });
 
 }).call(this, jQuery, window);
