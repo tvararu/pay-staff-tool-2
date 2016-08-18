@@ -54,16 +54,6 @@ function handleAuthClick(event) {
  * Load Sheets API client library.
  */
 function loadSheetsApi() {
-  init_nunjucks();
-  var discoveryUrl =
-      'https://sheets.googleapis.com/$discovery/rest?version=v4';
-  gapi.client.load(discoveryUrl).then(listMajors);
-}
-
-/**
- * Load Sheets API client library.
- */
-function loadSheetsApi() {
   var discoveryUrl =
       'https://sheets.googleapis.com/$discovery/rest?version=v4';
   gapi.client.load(discoveryUrl).then(listMajors);
