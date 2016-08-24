@@ -7,29 +7,25 @@
 {% block content %}
 
 <main id="content" role="main">
-	<div class="grid-row">
 	
-		<div class="column-quarter">
-			<div class="left-nav">
-				<ul>
-			      	<li><a href="/staff-dashboard">Dashboard</a></li>
-			      	<li><a href="/transaction-list">Transactions</a></li>
-			      	<li><a href="/staff-upload-invoices">Upload invoices</a></li>
-			      	<li><a href="#">API keys</a></li>
-					<li><a href="#">Manage your team</a></li>
-					<li><a href="#">Settings</a></li>
-				</ul>
-			</div>	
-	    </div>
-	    <div class="column-three-quarters">
-		    <div class="grid-row padding-grid-row">
+  <div class="grid-row">
+      {% include "includes/utility-navigation.html" %}
+  </div>
+  
+  <div class="grid-row">
+    <div class="column-quarter"> 
+      {% include "includes/left-navigation.html" %}   
+    </div>
 
-		      <h1 class="heading-large underline">Dashboard</h1>
-		      	<div class="overview">
-		      		<h2 class="heading-small staff-subheading">
-	    				Transactions overview:
-	  				</h2>
-	  				<div class="column-quarter filter-fields">
+	<div class="column-three-quarters">
+		<div class="grid-row padding-grid-row">
+		  <h1 class="heading-large underline">Dashboard
+		  </h1>
+		  	<div class="overview">
+		  		<h2 class="heading-small staff-subheading">
+					Transactions overview:
+				</h2>
+				<div class="column-quarter filter-fields">
 				 	<div class="form-group">
 					  	<div class="dropdown">
 						  	<select name="select" class="form-control dropdown-list" id="full-name">
@@ -41,9 +37,9 @@
 							</select>
 						</div>
 					</div>
-				 </div>
 				</div>
 			</div>
+		</div>	
 
 		<div class="grid-row">
 		<div class="column-half no-left-padding">

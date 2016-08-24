@@ -7,18 +7,14 @@
 {% block content %}
 
 <main id="content" role="main">
+
   <div class="grid-row">
-    <div class="column-quarter">
-            <div class="left-nav">
-              <ul>
-              <li><a href="/staff-dashboard">Dashboard</a></li>
-              <li><a href="/transaction-list">Transactions</a></li>
-              <li><a href="/staff-upload-invoices">Upload invoices</a></li>
-              <li><a href="#">API keys</a></li>
-          <li><a href="#">Manage your team</a></li>
-          <li><a href="#">Settings</a></li>
-        </ul>
-            </div>  
+      {% include "includes/utility-navigation.html" %}
+  </div>
+  
+  <div class="grid-row">
+    <div class="column-quarter"> 
+      {% include "includes/left-navigation.html" %}   
     </div>
 
     <div class="column-three-quarters">
