@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK payment page
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-quarter">
+            <div class="left-nav">
+              <ul>
+              <li><a href="/staff-dashboard">Dashboard</a></li>
+              <li><a href="/transaction-list">Transactions</a></li>
+              <li><a href="/staff-upload-invoices">Upload invoices</a></li>
+              <li><a href="#">API keys</a></li>
+          <li><a href="#">Manage your team</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+            </div>  
+    </div>
+
+    <div class="column-three-quarters">
+      <div class="grid-row padding-grid-row">
+        <div class="intro-block-blue">
+
+        <h1 class="heading-large">Welcome to GOV.UK Pay</h1>
+          <p class="lede">This sandbox account allows you to test the features of GOV.UK Pay without taking any real payments.</p>
+
+        <h2 class="heading-medium">Get started</h2>
+        <p> Make some test payments that will populate your sandbox account and allow you to test the features of this admin tool.</p>
+
+          <p> <span class="heading-large">1.</span> Generate an <a href="#">API key</a> and copy it to your clipboard.</p>
+          <p> <span class="heading-large">2.</span> Go to make a <a href="#">test payment</a>. You will be asked to insert the API key you have generated plus some pretend payment details.</p>
+          <p> <span class="heading-large">3.</span> Go to the <a href="#">GOV.UK Pay documentation</a> to see the different test cards you can use.</p>
+          <p> <span class="heading-large">4.</span> You can then see these payments populate your transactions list.</p>
+          
+
+          <p> When you are ready to take real payments <a href="#">get in touch with us</a>.</p>
+          
+          </div>
+        </div>
+
+        <div class="grid-row padding-grid-row">
+
+          <h1 class="heading-large underline">Dashboard</h1>
+            <div class="overview">
+              <h2 class="heading-small staff-subheading">
+              Transactions overview:
+            </h2>
+            <div class="column-quarter filter-fields">
+          <div class="form-group">
+              <div class="dropdown">
+                <select name="select" class="form-control dropdown-list" id="full-name">
+                  <option value="value1" selected>Today</option> 
+                <option value="value2">7 days</option>
+                <option value="value3">30 days</option>
+                <option value="value4">6 months</option>
+                <option value="value5">12 months</option>
+              </select>
+            </div>
+          </div>
+         </div>
+        </div>
+      </div>
+
+    <div class="grid-row">
+          <div class="column-half no-left-padding">
+              <div class="dashboard-section">
+              <table class="big-type-table">
+                  <thead>
+                    <tr>
+                      <th colspan="2">In-progress payments</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class='clickable-row table-colour' data-href='#'>
+                      <td>0</td>
+                      <td class="right-align">£0</td>
+                    </tr>
+                   </tbody>
+              </table>
+
+              <table class="big-type-table">
+                  <thead>
+                    <tr>
+                      <th colspan="2">Sucessful payments</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class='clickable-row table-colour-green' data-href='#'>
+                      <td>0</td>
+                      <td class="right-align">£0</td>
+                    </tr>
+                   </tbody>
+              </table>
+
+
+              <table class="big-type-table">
+                  <thead>
+                    <tr>
+                      <th colspan="2">Failed payments</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class='clickable-row table-colour-red' data-href='#'>
+                      <td>0</td>
+                      <td class="right-align">£0</td>
+                    </tr>
+                   </tbody>
+              </table>
+
+              
+            </div>
+        
+          </div>
+
+        <div class="column-half">
+            <div class="dashboard-section">
+            <table class="big-type-table">
+                <thead>
+                  <tr>
+                    <th colspan="2">Fully refunded payments</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class='clickable-row table-colour-grey' data-href='#'>
+                    <td>0</td>
+                    <td class="right-align">£0</td>
+                  </tr>
+                 </tbody>
+            </table>
+
+            <table class="big-type-table">
+                <thead>
+                  <tr>
+                    <th colspan="2">Partially refunded payments</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class='clickable-row table-colour-grey' data-href='#'>
+                    <td>0</td>
+                    <td class="right-align">£0</td>
+                  </tr>
+                 </tbody>
+            </table>
+          </div>
+      
+        </div>
+  
+    </div>
+  </div>
+</div>
+
+</main>
+{%endblock%}
+
+
