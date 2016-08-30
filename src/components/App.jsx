@@ -1,5 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
+import TransactionList from './TransactionList'
 
-export default function App () {
-  return <h1>Hello, world!</h1>
+export default class App extends Component {
+  render () {
+    return <div>
+      <TransactionList />
+    </div>
+  }
 }
