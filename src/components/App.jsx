@@ -47,6 +47,11 @@ function rowToTransaction (row) {
 
 export default class App extends Component {
   state = {
+    applyFilter: false,
+    filteredTransactions: [],
+    filterCardType: 'All types',
+    filterPaymentStatus: 'All transactions',
+    filterReferenceNumberOrEmail: '',
     selectedTransaction: null,
     transactions: []
   }
@@ -58,6 +63,10 @@ export default class App extends Component {
 
     this.handleTransactionSelect = this.handleTransactionSelect.bind(this)
     this.handleTransactionUnselect = this.handleTransactionUnselect.bind(this)
+    this.handleApplyFilters = this.handleApplyFilters.bind(this)
+    this.handleCardTypeChange = this.handleCardTypeChange.bind(this)
+    this.handlePaymentStatusChange = this.handlePaymentStatusChange.bind(this)
+    this.handleReferenceNumberOrEmailChange = this.handleReferenceNumberOrEmailChange.bind(this)
   }
 
   componentWillUnmount () {
@@ -100,6 +109,12 @@ export default class App extends Component {
     })
   }
 
+  getTransactions () {
+    return (this.state.applyFilter)
+      ? this.state.filteredTransactions
+      : this.state.transactions
+  }
+
   handleTransactionSelect (idx) {
     this.setState({ selectedTransaction: idx })
   }
@@ -108,8 +123,53 @@ export default class App extends Component {
     this.setState({ selectedTransaction: null })
   }
 
+  handleCardTypeChange (evt) {
+    this.setState({ filterCardType: evt.target.value })
+  }
+
+  handlePaymentStatusChange (evt) {
+    this.setState({ filterPaymentStatus: evt.target.value })
+  }
+
+  handleReferenceNumberOrEmailChange (evt) {
+    this.setState({ filterReferenceNumberOrEmail: evt.target.value })
+  }
+
+  handleApplyFilters () {
+    const filterCardType = (tr) => {
+      // TODO: Handle 'Debit card only' and 'Credit card only'.
+      if (this.state.filterCardType === 'All types') { return true }
+      return tr.card === this.state.filterCardType
+    }
+
+    const filterPaymentStatus = (tr) => {
+      // TODO: Handle refunds.
+      if (this.state.filterPaymentStatus === 'All transactions') { return true }
+      return tr.status === this.state.filterPaymentStatus
+    }
+
+    const filterByReferenceNumberOrEmail = (tr) => {
+      const referenceNumberOrEmail = this.state.filterReferenceNumberOrEmail.trim().toLowerCase()
+      if (!referenceNumberOrEmail) { return true }
+      const data = (tr.reference + tr.email).toLowerCase()
+      const hasPartialMatch = data.indexOf(referenceNumberOrEmail) !== -1
+      return hasPartialMatch
+    }
+
+    const filteredTransactions = this.state.transactions
+      .filter(filterCardType)
+      .filter(filterPaymentStatus)
+      .filter(filterByReferenceNumberOrEmail)
+
+    this.setState({
+      applyFilter: true,
+      filteredTransactions
+    })
+  }
+
   render () {
-    const {transactions, selectedTransaction} = this.state
+    const transactions = this.getTransactions()
+    const {selectedTransaction} = this.state
     const hasSelectedTransaction = selectedTransaction !== null
 
     return <div>
@@ -122,7 +182,15 @@ export default class App extends Component {
           />
         </div>
         : <div>
-          <TransactionFilters />
+          <TransactionFilters
+            handleFilterButtonClick={this.handleApplyFilters}
+            handleCardTypeChange={this.handleCardTypeChange}
+            handlePaymentStatusChange={this.handlePaymentStatusChange}
+            handleReferenceNumberOrEmailChange={this.handleReferenceNumberOrEmailChange}
+            cardType={this.state.filterCardType}
+            paymentStatus={this.state.filterPaymentStatus}
+            referenceNumberOrEmail={this.state.filterReferenceNumberOrEmail}
+          />
           <TransactionList
             handleTransactionClick={this.handleTransactionSelect}
             transactions={transactions}
