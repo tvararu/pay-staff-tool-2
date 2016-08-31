@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TransactionDetail from './TransactionDetail'
 import TransactionList from './TransactionList'
 const gapi = window.gapi
 
@@ -45,12 +46,17 @@ function rowToTransaction (row) {
 
 export default class App extends Component {
   state = {
+    selectedTransaction: null,
     transactions: []
   }
 
-  componentDidMount () {
+  constructor (props) {
+    super(props)
     this._checkGoogle = true
     this.pollGoogle()
+
+    this.handleTransactionSelect = this.handleTransactionSelect.bind(this)
+    this.handleTransactionUnselect = this.handleTransactionUnselect.bind(this)
   }
 
   componentWillUnmount () {
@@ -93,11 +99,29 @@ export default class App extends Component {
     })
   }
 
+  handleTransactionSelect (idx) {
+    this.setState({ selectedTransaction: idx })
+  }
+
+  handleTransactionUnselect () {
+    this.setState({ selectedTransaction: null })
+  }
+
   render () {
+    const {transactions, selectedTransaction} = this.state
+    const hasSelectedTransaction = selectedTransaction !== null
+
     return <div>
-      <TransactionList
-        transactions={this.state.transactions}
-      />
+      {(hasSelectedTransaction)
+        ? <TransactionDetail
+          handleBackClick={this.handleTransactionUnselect}
+          transaction={transactions[selectedTransaction]}
+        />
+        : <TransactionList
+          handleTransactionClick={this.handleTransactionSelect}
+          transactions={transactions}
+        />
+      }
     </div>
   }
 }

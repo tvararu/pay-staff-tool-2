@@ -4,6 +4,7 @@ import TransactionRow from './TransactionRow'
 
 export default class TransactionList extends Component {
   static propTypes = {
+    handleTransactionClick: PropTypes.func.isRequired,
     transactions: PropTypes.arrayOf(PropTypes.transaction).isRequired
   }
 
@@ -23,12 +24,14 @@ export default class TransactionList extends Component {
           </tr>
         </thead>
         <tbody>
-          {transactions.map((tr, idx) =>
-            <TransactionRow
+          {transactions.map((tr, idx) => {
+            const handleClick = () => this.props.handleTransactionClick(idx)
+            return <TransactionRow
+              handleClick={handleClick}
               key={idx}
               transaction={tr}
             />
-          )}
+          })}
         </tbody>
       </table>
     </div>
