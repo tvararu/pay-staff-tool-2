@@ -2,11 +2,6 @@
 
 {% block head %}
   {% include "includes/head.html" %}
-  <script src="/public/javascripts/jquery-1.11.3.js"></script>
-  <script src="/public/javascripts/nunjucks.min.js"></script>
-  <script src="/public/javascripts/templates.js"></script>
-  <script src="/public/javascripts/google-sheets.js"></script>
-  <script src="/public/javascripts/data-app.js"></script>
 {% endblock %}
 
 {% block body_classes %}transaction-list-view{% endblock %}
@@ -115,25 +110,9 @@
         <img class="page-numbers" src="/public/images/next-page.png">
       </div>
       <div id="react-root"></div>
-      <div class="table-list">
-        <table class="table" id="transaction-table">
-          <thead>
-            <tr>
-              <th scope="col">Reference number</th>
-              <th scope="col">Email address</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Card type</th>
-              <th scope="col" class="status-column">Payment status</th>
-              <th scope="col">Date created</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-        {% include "includes/loader.html" %}
-      </div>
     </div>
   </div>
+  <script src="https://apis.google.com/js/client.js"></script>
   <script src="/public/javascripts/bundle.js"></script>
 </main>
 {% endblock %}
