@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TransactionDetail from './TransactionDetail'
+import TransactionFilters from './TransactionFilters'
 import TransactionList from './TransactionList'
 const gapi = window.gapi
 
@@ -112,15 +113,21 @@ export default class App extends Component {
     const hasSelectedTransaction = selectedTransaction !== null
 
     return <div>
+      <h1 className='heading-large underline'>Transactions</h1>
       {(hasSelectedTransaction)
-        ? <TransactionDetail
-          handleBackClick={this.handleTransactionUnselect}
-          transaction={transactions[selectedTransaction]}
-        />
-        : <TransactionList
-          handleTransactionClick={this.handleTransactionSelect}
-          transactions={transactions}
-        />
+        ? <div>
+          <TransactionDetail
+            handleBackClick={this.handleTransactionUnselect}
+            transaction={transactions[selectedTransaction]}
+          />
+        </div>
+        : <div>
+          <TransactionFilters />
+          <TransactionList
+            handleTransactionClick={this.handleTransactionSelect}
+            transactions={transactions}
+          />
+        </div>
       }
     </div>
   }
