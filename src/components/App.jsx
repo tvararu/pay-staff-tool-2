@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import TransactionDetail from './TransactionDetail'
 import TransactionFilters from './TransactionFilters'
 import TransactionList from './TransactionList'
-const gapi = window.gapi
+import PropTypes from '../propTypes'
+let gapi = window.gapi
 
 const POLL_INTERVAL = 50
 const CLIENT_ID = '346594036666-onvig8chsunlgds9bcrc33fifa80p7d9.apps.googleusercontent.com'
@@ -45,6 +46,73 @@ function rowToTransaction (row) {
   }
 }
 
+class GoogleSheetsApi extends Component {
+  static propTypes = {
+    onReady: PropTypes.func.isRequired
+  }
+
+  state = {
+    googleAuthError: false
+  }
+
+  constructor (props) {
+    super(props)
+
+    this._checkGoogle = true
+    this.pollGoogle()
+
+    this.loadSheetsApi = this.loadSheetsApi.bind(this)
+  }
+
+  componentWillUnmount () {
+    this._checkGoogle = false
+  }
+
+  pollGoogle () {
+    gapi = window.gapi
+    const isGapiReady = gapi && gapi.auth && gapi.auth.authorize
+    if (isGapiReady) {
+      this.loadSheetsApi()
+    } else if (this._checkGoogle) {
+      setTimeout(() => this.pollGoogle(), POLL_INTERVAL)
+    }
+  }
+
+  loadSheetsApi () {
+    this.setState({ googleAuthError: false })
+    gapi.auth.authorize({
+      'client_id': CLIENT_ID,
+      'scope': SCOPES,
+      'immediate': true
+    }, (authResult) => {
+      if (authResult.error) {
+        this.setState({ googleAuthError: authResult })
+        return
+      }
+
+      gapi.client.load(DISCOVERY_URL).then(() => {
+        this.props.onReady(gapi)
+      })
+    })
+  }
+
+  render () {
+    const {googleAuthError} = this.state
+
+    return <div>
+      {(googleAuthError)
+        ? <div>
+          <p>
+            Google Auth error: {googleAuthError.error} {googleAuthError.error_subtype}<br />
+            Authorize access to Google Sheets API <button onClick={this.loadSheetsApi}>Authorize</button>
+          </p>
+        </div>
+        : null
+      }
+    </div>
+  }
+}
+
 export default class App extends Component {
   state = {
     applyFilter: false,
@@ -58,8 +126,6 @@ export default class App extends Component {
 
   constructor (props) {
     super(props)
-    this._checkGoogle = true
-    this.pollGoogle()
 
     this.handleTransactionSelect = this.handleTransactionSelect.bind(this)
     this.handleTransactionUnselect = this.handleTransactionUnselect.bind(this)
@@ -67,37 +133,16 @@ export default class App extends Component {
     this.handleCardTypeChange = this.handleCardTypeChange.bind(this)
     this.handlePaymentStatusChange = this.handlePaymentStatusChange.bind(this)
     this.handleReferenceNumberOrEmailChange = this.handleReferenceNumberOrEmailChange.bind(this)
+    this.handleGoogleSheetsApiReady = this.handleGoogleSheetsApiReady.bind(this)
   }
 
-  componentWillUnmount () {
-    clearTimeout(this._timeout)
-  }
-
-  pollGoogle () {
-    const isGapiReady = gapi && gapi.auth && gapi.auth.authorize
-    if (isGapiReady) {
-      this.loadSheetsApi()
-    } else {
-      this._timeout = setTimeout(() => this.pollGoogle(), POLL_INTERVAL)
-    }
-  }
-
-  loadSheetsApi () {
-    gapi.auth.authorize({
-      'client_id': CLIENT_ID,
-      'scope': SCOPES,
-      'immediate': true
-    }, (authResult) => {
-      if (authResult.error) { throw authResult.error }
-
-      gapi.client.load(DISCOVERY_URL).then(() => {
-        this.loadSpreadsheet()
-      })
-    })
+  handleGoogleSheetsApiReady (gapi) {
+    this.setState({ gapi })
+    this.loadSpreadsheet()
   }
 
   loadSpreadsheet () {
-    gapi.client.sheets.spreadsheets.values.get({
+    this.state.gapi.client.sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
       range: 'Dataset0.1!A' + 2 + ':R' + 101
     }).then((response) => {
@@ -173,6 +218,9 @@ export default class App extends Component {
     const hasSelectedTransaction = selectedTransaction !== null
 
     return <div>
+      <GoogleSheetsApi
+        onReady={this.handleGoogleSheetsApiReady}
+      />
       <h1 className='heading-large underline'>Transactions</h1>
       {(hasSelectedTransaction)
         ? <div>
