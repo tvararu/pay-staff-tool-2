@@ -120,6 +120,7 @@ export default class App extends Component {
     filterCardType: 'All types',
     filterPaymentStatus: 'All transactions',
     filterReferenceNumberOrEmail: '',
+    gapi: false,
     selectedTransaction: null,
     transactions: []
   }
@@ -214,7 +215,7 @@ export default class App extends Component {
 
   render () {
     const transactions = this.getTransactions()
-    const {selectedTransaction} = this.state
+    const {selectedTransaction, gapi} = this.state
     const hasSelectedTransaction = selectedTransaction !== null
 
     return <div>
@@ -241,6 +242,7 @@ export default class App extends Component {
           />
           <TransactionList
             handleTransactionClick={this.handleTransactionSelect}
+            loading={!!gapi}
             transactions={transactions}
           />
         </div>

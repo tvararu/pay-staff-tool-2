@@ -5,11 +5,12 @@ import TransactionRow from './TransactionRow'
 export default class TransactionList extends Component {
   static propTypes = {
     handleTransactionClick: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
     transactions: PropTypes.arrayOf(PropTypes.transaction).isRequired
   }
 
   render () {
-    const {transactions} = this.props
+    const {transactions, loading} = this.props
 
     return <div>
       <div className='column-three-quarters filter-fields'>
@@ -40,6 +41,13 @@ export default class TransactionList extends Component {
             })}
           </tbody>
         </table>
+        {(loading)
+          ? <div className='pre-load-marker'>
+            <img src='/public/images/ring.gif' alt='Loading spinner' />
+            <p>Fetching data from Google Sheets</p>
+          </div>
+          : null
+        }
       </div>
     </div>
   }
