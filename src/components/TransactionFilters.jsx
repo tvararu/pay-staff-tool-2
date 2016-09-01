@@ -143,11 +143,6 @@ export default class TransactionFilters extends Component {
           </div>
         </div>
       </div>
-      <div className='column-three-quarters filter-fields'>
-        <h2 className='heading-small'>
-          45,896 transactions
-        </h2>
-      </div>
     </div>
   }
 }
