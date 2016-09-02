@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from '../propTypes'
+import DownloadTransactionsCsv from './DownloadTransactionsCsv'
 import TransactionRow from './TransactionRow'
 
 export default class TransactionList extends Component {
@@ -16,7 +17,14 @@ export default class TransactionList extends Component {
     return <div>
       <div className='column-three-quarters filter-fields'>
         <h2 className='heading-small'>
-          {transactions.length} {(transactions.length === 1) ? 'transaction' : 'transactions'}
+          <span style={{marginRight: '0.5rem'}}>
+            {transactions.length} {(transactions.length === 1) ? 'transaction' : 'transactions'}
+          </span>
+          <DownloadTransactionsCsv
+            transactions={transactions}
+          >
+            (download CSV)
+          </DownloadTransactionsCsv>
         </h2>
       </div>
       <div className='table-list'>
