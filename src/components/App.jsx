@@ -118,8 +118,8 @@ export default class App extends Component {
     this.setState({ filterPaymentStatus: evt.target.value })
   }
 
-  handleReferenceNumberOrEmailChange (evt) {
-    this.setState({ filterReferenceNumberOrEmail: evt.target.value })
+  handleReferenceNumberOrEmailChange (value) {
+    this.setState({ filterReferenceNumberOrEmail: value })
   }
 
   handleApplyFilters () {
