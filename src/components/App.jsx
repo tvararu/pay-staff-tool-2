@@ -96,11 +96,17 @@ export default class App extends Component {
       : this.state.transactions
   }
 
+  scrollToTop () {
+    window.scrollTo(0, 0)
+  }
+
   handleTransactionSelect (idx) {
+    this.scrollToTop()
     this.setState({ selectedTransaction: idx })
   }
 
   handleTransactionUnselect () {
+    this.scrollToTop()
     this.setState({ selectedTransaction: null })
   }
 
