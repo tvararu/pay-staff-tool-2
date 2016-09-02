@@ -11,6 +11,7 @@ export default class TransactionList extends Component {
 
   render () {
     const {transactions, loading} = this.props
+    const noTransactions = transactions.length === 0
 
     return <div>
       <div className='column-three-quarters filter-fields'>
@@ -46,6 +47,10 @@ export default class TransactionList extends Component {
             <img src='/public/images/ring.gif' alt='Loading spinner' />
             <p>Fetching data from Google Sheets</p>
           </div>
+          : null
+        }
+        {(noTransactions)
+          ? <p>No transactions were found.</p>
           : null
         }
       </div>
