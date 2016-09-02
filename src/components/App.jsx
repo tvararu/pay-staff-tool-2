@@ -64,6 +64,7 @@ export default class App extends Component {
     this.handlePaymentStatusChange = this.handlePaymentStatusChange.bind(this)
     this.handleReferenceNumberOrEmailChange = this.handleReferenceNumberOrEmailChange.bind(this)
     this.handleGoogleSheetsApiReady = this.handleGoogleSheetsApiReady.bind(this)
+    this.handleResetFilters = this.handleResetFilters.bind(this)
   }
 
   handleGoogleSheetsApiReady (gapi) {
@@ -147,9 +148,20 @@ export default class App extends Component {
     })
   }
 
+  handleResetFilters (evt) {
+    evt.preventDefault()
+    this.setState({
+      applyFilter: false,
+      filteredTransactions: [],
+      filterCardType: 'All types',
+      filterPaymentStatus: 'All transactions',
+      filterReferenceNumberOrEmail: ''
+    })
+  }
+
   render () {
     const transactions = this.getTransactions()
-    const {selectedTransaction, loading} = this.state
+    const {selectedTransaction, loading, applyFilter} = this.state
     const hasSelectedTransaction = selectedTransaction !== null
 
     return <div>
@@ -174,6 +186,10 @@ export default class App extends Component {
             paymentStatus={this.state.filterPaymentStatus}
             referenceNumberOrEmail={this.state.filterReferenceNumberOrEmail}
           />
+          {(applyFilter)
+            ? <p><a href='#' onClick={this.handleResetFilters}>Reset all filters</a></p>
+            : null
+          }
           <TransactionList
             handleTransactionClick={this.handleTransactionSelect}
             loading={loading}

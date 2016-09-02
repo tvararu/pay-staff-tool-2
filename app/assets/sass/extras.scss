@@ -116,12 +116,12 @@ tbody {
 	font-size: 14px;
 }
 
-tr.clickable-row { 
+tr.clickable-row {
 	cursor: pointer;
 }
 
-tr.clickable-row:hover { 
-	background-color: #F8F8F8; 
+tr.clickable-row:hover {
+	background-color: #F8F8F8;
 }
 
 
@@ -167,6 +167,7 @@ tr.clickable-row:hover {
 	background-color: #DEE0E2;
 	height: 240px;
 	padding: 20px;
+	overflow: hidden;
 }
 
 .filter-fields {
@@ -234,15 +235,15 @@ tr.clickable-row:hover {
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   font-size: 16px;  
+   font-size: 16px;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   font-size: 16px;  
+   font-size: 16px;
 }
 
-:-ms-input-placeholder {  
-   font-size: 16px;  
+:-ms-input-placeholder {
+   font-size: 16px;
 }
 
 .filter-button {
@@ -527,7 +528,7 @@ table td {
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 10px;
-	padding-bottom: 5px;	
+	padding-bottom: 5px;
 }
 
 .right-align {
@@ -554,20 +555,20 @@ table td {
 	color: white;
 }
 
-tr.table-colour:hover { 
-	background-color: black; 
+tr.table-colour:hover {
+	background-color: black;
 }
 
-tr.table-colour-red:hover { 
-	background-color: black; 
+tr.table-colour-red:hover {
+	background-color: black;
 }
 
-tr.table-colour-green:hover { 
-	background-color: black; 
+tr.table-colour-green:hover {
+	background-color: black;
 }
 
-tr.table-colour-grey:hover { 
-	background-color: black; 
+tr.table-colour-grey:hover {
+	background-color: black;
 }
 
 .form-label-bold {
@@ -686,7 +687,7 @@ img.card-image {
 
 .DD-terms-conditions a {
 	text-decoration: underline;
-	color: #005EA5; 
+	color: #005EA5;
 }
 
 .dd-images img {
@@ -755,7 +756,7 @@ h2.heading-paypoint {
 	font-size: 19px;
 	color: white;
 	background-color: #28A197;
-	padding: 30px; 
+	padding: 30px;
 }
 
 .logo {
@@ -855,4 +856,3 @@ body {
     display: none;
   }
 }
-
