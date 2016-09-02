@@ -206,7 +206,11 @@ export default class App extends Component {
       filteredTransactions: [],
       filterCardType: 'All types',
       filterPaymentStatus: 'All transactions',
-      filterReferenceNumberOrEmail: ''
+      filterReferenceNumberOrEmail: '',
+      filterFromDate: '',
+      filterFromTime: '',
+      filterToDate: '',
+      filterToTime: ''
     })
   }
 
