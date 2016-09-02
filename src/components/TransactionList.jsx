@@ -58,7 +58,7 @@ export default class TransactionList extends Component {
           : null
         }
         {(noTransactions && !loading)
-          ? <p>No transactions were found.</p>
+          ? <p>There are no transactions that match your current filters.</p>
           : null
         }
       </div>
