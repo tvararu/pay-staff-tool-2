@@ -25,12 +25,24 @@ export default class TransactionFilters extends Component {
       'Failed',
       'Refunds'
     ]).isRequired,
+    fromDate: PropTypes.string.isRequired,
+    fromTime: PropTypes.string.isRequired,
+    toDate: PropTypes.string.isRequired,
+    toTime: PropTypes.string.isRequired,
+    handleFromDateChange: PropTypes.func.isRequired,
+    handleFromTimeChange: PropTypes.func.isRequired,
+    handleToDateChange: PropTypes.func.isRequired,
+    handleToTimeChange: PropTypes.func.isRequired,
     referenceNumberOrEmail: PropTypes.string.isRequired
   }
 
   render () {
-    const {referenceNumberOrEmail, handleReferenceNumberOrEmailChange, handleFilterButtonClick,
-      handleCardTypeChange, handlePaymentStatusChange, cardType, paymentStatus} = this.props
+    const {
+      referenceNumberOrEmail, handleReferenceNumberOrEmailChange, handleFilterButtonClick,
+      handleCardTypeChange, handlePaymentStatusChange, cardType, paymentStatus,
+      fromDate, fromTime, toDate, toTime,
+      handleFromDateChange, handleFromTimeChange, handleToDateChange, handleToTimeChange
+    } = this.props
 
     return <div>
       <div className='overview'>
@@ -104,12 +116,22 @@ export default class TransactionFilters extends Component {
             <div className='form-date'>
               <div className='form-group'>
                 <p className='form-hint'><label htmlFor='date-from-date'>Date</label></p>
-                <input className='form-control' id='date-from-date' type='text' />
+                <InputText
+                  id='date-from-date'
+                  onChange={handleFromDateChange}
+                  value={fromDate}
+                  onSubmit={handleFilterButtonClick}
+                />
                 <p className='form-hint-small'>eg 25/11/2015</p>
               </div>
               <div className='form-group'>
                 <p className='form-hint'><label htmlFor='date-from-time'>Time</label></p>
-                <input className='form-control' id='date-from-time' type='text' />
+                <InputText
+                  id='date-from-time'
+                  onChange={handleFromTimeChange}
+                  value={fromTime}
+                  onSubmit={handleFilterButtonClick}
+                />
                 <p className='form-hint-small'>eg 9:30:00</p>
               </div>
               <div className='datetime-seperator'>
@@ -117,12 +139,22 @@ export default class TransactionFilters extends Component {
               </div>
               <div className='form-group'>
                 <p className='form-hint'><label htmlFor='date-to-date'>Date</label></p>
-                <input className='form-control' id='date-to-date' type='text' />
+                <InputText
+                  id='date-to-date'
+                  onChange={handleToDateChange}
+                  value={toDate}
+                  onSubmit={handleFilterButtonClick}
+                />
                 <p className='form-hint-small'>eg 27/11/2015</p>
               </div>
               <div className='form-group'>
                 <p className='form-hint'><label htmlFor='date-to-time'>Time</label></p>
-                <input className='form-control' id='date-to-time' type='text' />
+                <InputText
+                  id='date-to-time'
+                  onChange={handleToTimeChange}
+                  value={toTime}
+                  onSubmit={handleFilterButtonClick}
+                />
                 <p className='form-hint-small'>eg 15:00:00</p>
               </div>
             </div>

@@ -48,6 +48,10 @@ export default class App extends Component {
     filterCardType: 'All types',
     filterPaymentStatus: 'All transactions',
     filterReferenceNumberOrEmail: '',
+    filterFromDate: '',
+    filterFromTime: '',
+    filterToDate: '',
+    filterToTime: '',
     gapi: false,
     loading: true,
     selectedTransaction: null,
@@ -65,6 +69,10 @@ export default class App extends Component {
     this.handleReferenceNumberOrEmailChange = this.handleReferenceNumberOrEmailChange.bind(this)
     this.handleGoogleSheetsApiReady = this.handleGoogleSheetsApiReady.bind(this)
     this.handleResetFilters = this.handleResetFilters.bind(this)
+    this.handleFromDateChange = this.handleFromDateChange.bind(this)
+    this.handleFromTimeChange = this.handleFromTimeChange.bind(this)
+    this.handleToDateChange = this.handleToDateChange.bind(this)
+    this.handleToTimeChange = this.handleToTimeChange.bind(this)
   }
 
   handleGoogleSheetsApiReady (gapi) {
@@ -120,6 +128,22 @@ export default class App extends Component {
 
   handleReferenceNumberOrEmailChange (value) {
     this.setState({ filterReferenceNumberOrEmail: value })
+  }
+
+  handleFromDateChange (value) {
+    this.setState({ filterFromDate: value })
+  }
+
+  handleFromTimeChange (value) {
+    this.setState({ filterFromTime: value })
+  }
+
+  handleToDateChange (value) {
+    this.setState({ filterToDate: value })
+  }
+
+  handleToTimeChange (value) {
+    this.setState({ filterToTime: value })
   }
 
   handleApplyFilters () {
@@ -188,7 +212,15 @@ export default class App extends Component {
             handleCardTypeChange={this.handleCardTypeChange}
             handlePaymentStatusChange={this.handlePaymentStatusChange}
             handleReferenceNumberOrEmailChange={this.handleReferenceNumberOrEmailChange}
+            handleFromDateChange={this.handleFromDateChange}
+            handleFromTimeChange={this.handleFromTimeChange}
+            handleToDateChange={this.handleToDateChange}
+            handleToTimeChange={this.handleToTimeChange}
             cardType={this.state.filterCardType}
+            fromDate={this.state.filterFromDate}
+            fromTime={this.state.filterFromTime}
+            toDate={this.state.filterToDate}
+            toTime={this.state.filterToTime}
             paymentStatus={this.state.filterPaymentStatus}
             referenceNumberOrEmail={this.state.filterReferenceNumberOrEmail}
           />

@@ -57,7 +57,7 @@ export default class TransactionList extends Component {
           </div>
           : null
         }
-        {(noTransactions)
+        {(noTransactions && !loading)
           ? <p>No transactions were found.</p>
           : null
         }
