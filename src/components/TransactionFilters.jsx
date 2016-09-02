@@ -9,8 +9,6 @@ export default class TransactionFilters extends Component {
     handleReferenceNumberOrEmailChange: PropTypes.func.isRequired,
     cardType: PropTypes.oneOf([
       'All types',
-      'Credit card only',
-      'Debit card only',
       'Visa',
       'Mastercard',
       'American Express',
@@ -89,8 +87,6 @@ export default class TransactionFilters extends Component {
                 value={cardType}
               >
                 <option value='All types'>All types</option>
-                <option value='Credit card only'>Credit card only</option>
-                <option value='Debit card only'>Debit card only</option>
                 <option value='Visa'>Visa</option>
                 <option value='Mastercard'>Mastercard</option>
                 <option value='American Express'>American Express</option>
