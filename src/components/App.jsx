@@ -121,6 +121,7 @@ export default class App extends Component {
     filterPaymentStatus: 'All transactions',
     filterReferenceNumberOrEmail: '',
     gapi: false,
+    loading: true,
     selectedTransaction: null,
     transactions: []
   }
@@ -138,16 +139,21 @@ export default class App extends Component {
   }
 
   handleGoogleSheetsApiReady (gapi) {
-    this.setState({ gapi })
+    this.setState({
+      gapi,
+      loading: false
+    })
     this.loadSpreadsheet()
   }
 
   loadSpreadsheet () {
+    this.setState({ loading: true })
     this.state.gapi.client.sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
       range: 'Dataset0.1!A' + 2 + ':R' + 101
     }).then((response) => {
       this.setState({
+        loading: false,
         transactions: response.result.values.map(rowToTransaction)
       })
     }, (response) => {
@@ -215,7 +221,7 @@ export default class App extends Component {
 
   render () {
     const transactions = this.getTransactions()
-    const {selectedTransaction, gapi} = this.state
+    const {selectedTransaction, loading} = this.state
     const hasSelectedTransaction = selectedTransaction !== null
 
     return <div>
@@ -242,7 +248,7 @@ export default class App extends Component {
           />
           <TransactionList
             handleTransactionClick={this.handleTransactionSelect}
-            loading={!!gapi}
+            loading={loading}
             transactions={transactions}
           />
         </div>
