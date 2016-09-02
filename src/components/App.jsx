@@ -6,18 +6,6 @@ import TransactionList from './TransactionList'
 
 const SPREADSHEET_ID = '1KThLEWTiXyl4j7AueDXq3FOKr_rkoZ57Db6kKChe0LA'
 
-function formatDate (date) {
-  const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  const day = date.getDate()
-  const month = MONTHS[date.getMonth()]
-  const year = date.getFullYear()
-  const hh = ('0' + date.getHours()).slice(-2)
-  const mm = ('0' + date.getMinutes()).slice(-2)
-  // 2 Jul 2016 – 12:45
-  return `${day} ${month} ${year} - ${hh}:${mm}`
-}
-
 function rowToTransaction (row) {
   return {
     reference: row[0],
@@ -31,13 +19,13 @@ function rowToTransaction (row) {
     provider: row[8],
     gatewayId: row[9],
     payId: row[10],
-    startDate: formatDate(new Date(Date.parse(row[11]))),
-    startEnter: formatDate(new Date(Date.parse(row[12]))),
-    authSubmit: formatDate(new Date(Date.parse(row[13]))),
-    authSucceed: formatDate(new Date(Date.parse(row[14]))),
-    paySubmit: formatDate(new Date(Date.parse(row[15]))),
-    paySucceed: formatDate(new Date(Date.parse(row[16]))),
-    failed: formatDate(new Date(Date.parse(row[17])))
+    startDate: new Date(Date.parse(row[11])),
+    startEnter: new Date(Date.parse(row[12])),
+    authSubmit: new Date(Date.parse(row[13])),
+    authSucceed: new Date(Date.parse(row[14])),
+    paySubmit: new Date(Date.parse(row[15])),
+    paySucceed: new Date(Date.parse(row[16])),
+    failed: new Date(Date.parse(row[17]))
   }
 }
 

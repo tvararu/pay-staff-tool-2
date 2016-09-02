@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from '../propTypes'
+import FormattedTime from './FormattedTime'
 
 export default class TransactionDetail extends Component {
   static propTypes = {
@@ -51,7 +52,7 @@ export default class TransactionDetail extends Component {
               </tr>
               <tr>
                 <td>Time:</td>
-                <td>{startDate}</td>
+                <td><FormattedTime time={startDate} /></td>
               </tr>
               <tr>
                 <td>Transaction ID:</td>
@@ -71,22 +72,22 @@ export default class TransactionDetail extends Component {
             <tr>
               <td>Authorisation succeeded</td>
               <td>£{amount}.00</td>
-              <td>{authSucceed}</td>
+              <td><FormattedTime time={authSucceed} /></td>
             </tr>
             <tr>
               <td>Card details submitted for authorisation</td>
               <td>£{amount}.00</td>
-              <td>{authSubmit}</td>
+              <td><FormattedTime time={authSubmit} /></td>
             </tr>
             <tr>
               <td>User entering card details</td>
               <td>£{amount}.00</td>
-              <td>{startEnter}</td>
+              <td><FormattedTime time={startEnter} /></td>
             </tr>
             <tr>
               <td>Payment created</td>
               <td>£{amount}.00</td>
-              <td>{startDate}</td>
+              <td><FormattedTime time={startDate} /></td>
             </tr>
           </tbody>
         </table>

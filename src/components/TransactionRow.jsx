@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from '../propTypes'
+import FormattedTime from './FormattedTime'
 
 export default class TransactionRow extends Component {
   static propTypes = {
@@ -25,7 +26,7 @@ export default class TransactionRow extends Component {
           : null
         }
       </td>
-      <td>{ startDate }</td>
+      <td><FormattedTime time={startDate} /></td>
     </tr>
   }
 }
