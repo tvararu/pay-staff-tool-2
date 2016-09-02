@@ -29,6 +29,32 @@ function rowToTransaction (row) {
   }
 }
 
+function getFromDate (ddmmyyyy, hhmmss) {
+  let [yyyy, MM, dd, hh, mm, ss] = '100-01-01 00:00:00'.split(/-|:|\s/)
+  if (ddmmyyyy.length) {
+    [dd, MM, yyyy] = ddmmyyyy.trim().split('/')
+    if (hhmmss.length) {
+      [hh, mm, ss] = hhmmss.trim().split(':')
+    }
+  }
+  return new Date(`${yyyy}-${MM}-${dd} ${hh}:${mm}:${ss}`)
+}
+
+function getToDate (ddmmyyyy, hhmmss) {
+  let [yyyy, MM, dd, hh, mm, ss] = '9999-12-31 23:59:59'.split(/-|:|\s/)
+  if (ddmmyyyy.length) {
+    [dd, MM, yyyy] = ddmmyyyy.trim().split('/')
+    if (hhmmss.length) {
+      [hh, mm, ss] = hhmmss.trim().split(':')
+    }
+  }
+  return new Date(`${yyyy}-${MM}-${dd} ${hh}:${mm}:${ss}`)
+}
+
+function isBetweenDates (d, before, after) {
+  return +before < +d && +d < +after
+}
+
 export default class App extends Component {
   state = {
     applyFilter: false,
@@ -136,7 +162,6 @@ export default class App extends Component {
 
   handleApplyFilters () {
     const filterCardType = (tr) => {
-      // TODO: Handle 'Debit card only' and 'Credit card only'.
       if (this.state.filterCardType === 'All types') { return true }
       return tr.card === this.state.filterCardType
     }
@@ -155,10 +180,18 @@ export default class App extends Component {
       return hasPartialMatch
     }
 
+    const filterByDate = (tr) => {
+      const fromDate = getFromDate(this.state.filterFromDate, this.state.filterFromTime)
+      const toDate = getToDate(this.state.filterToDate, this.state.filterToTime)
+      const isBetween = isBetweenDates(tr.startDate, fromDate, toDate)
+      return isBetween
+    }
+
     const filteredTransactions = this.state.transactions
       .filter(filterCardType)
       .filter(filterPaymentStatus)
       .filter(filterByReferenceNumberOrEmail)
+      .filter(filterByDate)
 
     this.setState({
       applyFilter: true,

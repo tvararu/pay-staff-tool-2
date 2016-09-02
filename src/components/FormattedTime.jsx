@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from '../PropTypes'
+import PropTypes from '../propTypes'
 
 function formatDate (date) {
   const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
