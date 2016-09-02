@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import shallowCompare from 'react-addons-shallow-compare'
 import PropTypes from '../propTypes'
 import FormattedTime from './FormattedTime'
 
@@ -6,6 +7,10 @@ export default class TransactionRow extends Component {
   static propTypes = {
     handleClick: PropTypes.func.isRequired,
     transaction: PropTypes.transaction.isRequired
+  }
+
+  shouldComponentUpdate (nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState)
   }
 
   render () {
