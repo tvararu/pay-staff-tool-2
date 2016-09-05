@@ -69,26 +69,38 @@ export default class TransactionDetail extends Component {
         <h2 className='trans-evs-heading heading-medium'>Transaction events</h2>
         <table>
           <tbody>
-            <tr>
-              <td>Authorisation succeeded</td>
-              <td>£{amount}.00</td>
-              <td><FormattedTime time={authSucceed} /></td>
-            </tr>
-            <tr>
-              <td>Card details submitted for authorisation</td>
-              <td>£{amount}.00</td>
-              <td><FormattedTime time={authSubmit} /></td>
-            </tr>
-            <tr>
-              <td>User entering card details</td>
-              <td>£{amount}.00</td>
-              <td><FormattedTime time={startEnter} /></td>
-            </tr>
-            <tr>
-              <td>Payment created</td>
-              <td>£{amount}.00</td>
-              <td><FormattedTime time={startDate} /></td>
-            </tr>
+            {(!isNaN(authSucceed))
+              ? <tr>
+                <td>Authorisation succeeded</td>
+                <td>£{amount}.00</td>
+                <td><FormattedTime time={authSucceed} /></td>
+              </tr>
+              : null
+            }
+            {(!isNaN(authSubmit))
+              ? <tr>
+                <td>Card details submitted for authorisation</td>
+                <td>£{amount}.00</td>
+                <td><FormattedTime time={authSubmit} /></td>
+              </tr>
+              : null
+            }
+            {(!isNaN(startEnter))
+              ? <tr>
+                <td>User entering card details</td>
+                <td>£{amount}.00</td>
+                <td><FormattedTime time={startEnter} /></td>
+              </tr>
+              : null
+            }
+            {(!isNaN(startDate))
+              ? <tr>
+                <td>Payment created</td>
+                <td>£{amount}.00</td>
+                <td><FormattedTime time={startDate} /></td>
+              </tr>
+              : null
+            }
           </tbody>
         </table>
       </div>
