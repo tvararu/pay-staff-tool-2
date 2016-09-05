@@ -29,7 +29,7 @@ export default class TransactionList extends Component {
         </h2>
       </div>
       <div className='table-list'>
-        <table className='table'>
+        <table className='table table-layout-fixed'>
           <thead>
             <tr>
               <th scope='col'>Reference number</th>

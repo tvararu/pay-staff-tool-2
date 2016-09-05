@@ -21,7 +21,7 @@ export default class TransactionRow extends Component {
       className='clickable-row'
     >
       <td>{ reference }</td>
-      <td>{ email.slice(0, 20) }</td>
+      <td className='overflow-ellipsis'>{ email }</td>
       <td>£{ amount }.00</td>
       <td>{ card }</td>
       <td>
