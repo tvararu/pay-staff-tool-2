@@ -37,7 +37,7 @@ export default class TransactionList extends Component {
               <th scope='col'>Amount</th>
               <th scope='col'>Card type</th>
               <th scope='col' className='status-column'>Payment status</th>
-              <th scope='col'>Date created</th>
+              <th scope='col'>Date</th>
             </tr>
           </thead>
           <tbody>
