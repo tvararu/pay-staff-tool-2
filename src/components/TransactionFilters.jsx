@@ -4,6 +4,7 @@ import InputText from './InputText'
 
 export default class TransactionFilters extends Component {
   static propTypes = {
+    applyFilter: PropTypes.bool.isRequired,
     handleFilterButtonClick: PropTypes.func.isRequired,
     handleCardTypeChange: PropTypes.func.isRequired,
     handlePaymentStatusChange: PropTypes.func.isRequired,
@@ -32,7 +33,8 @@ export default class TransactionFilters extends Component {
     handleFromTimeChange: PropTypes.func.isRequired,
     handleToDateChange: PropTypes.func.isRequired,
     handleToTimeChange: PropTypes.func.isRequired,
-    referenceNumberOrEmail: PropTypes.string.isRequired
+    referenceNumberOrEmail: PropTypes.string.isRequired,
+    handleResetFilters: PropTypes.func.isRequired
   }
 
   render () {
@@ -40,7 +42,8 @@ export default class TransactionFilters extends Component {
       referenceNumberOrEmail, handleReferenceNumberOrEmailChange, handleFilterButtonClick,
       handleCardTypeChange, handlePaymentStatusChange, cardType, paymentStatus,
       fromDate, fromTime, toDate, toTime,
-      handleFromDateChange, handleFromTimeChange, handleToDateChange, handleToTimeChange
+      handleFromDateChange, handleFromTimeChange, handleToDateChange, handleToTimeChange,
+      applyFilter, handleResetFilters
     } = this.props
 
     return <div>
@@ -166,6 +169,10 @@ export default class TransactionFilters extends Component {
             >
               Filter
             </button>
+            {(applyFilter)
+              ? <a href='#' onClick={handleResetFilters}>Reset all filters</a>
+              : null
+            }
           </div>
         </div>
       </div>

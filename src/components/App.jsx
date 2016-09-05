@@ -240,6 +240,7 @@ export default class App extends Component {
         </div>
         : <div>
           <TransactionFilters
+            applyFilter={applyFilter}
             handleFilterButtonClick={this.handleApplyFilters}
             handleCardTypeChange={this.handleCardTypeChange}
             handlePaymentStatusChange={this.handlePaymentStatusChange}
@@ -248,6 +249,7 @@ export default class App extends Component {
             handleFromTimeChange={this.handleFromTimeChange}
             handleToDateChange={this.handleToDateChange}
             handleToTimeChange={this.handleToTimeChange}
+            handleResetFilters={this.handleResetFilters}
             cardType={this.state.filterCardType}
             fromDate={this.state.filterFromDate}
             fromTime={this.state.filterFromTime}
@@ -256,10 +258,6 @@ export default class App extends Component {
             paymentStatus={this.state.filterPaymentStatus}
             referenceNumberOrEmail={this.state.filterReferenceNumberOrEmail}
           />
-          {(applyFilter)
-            ? <p><a href='#' onClick={this.handleResetFilters}>Reset all filters</a></p>
-            : null
-          }
           <TransactionList
             handleTransactionClick={this.handleTransactionSelect}
             loading={loading}
