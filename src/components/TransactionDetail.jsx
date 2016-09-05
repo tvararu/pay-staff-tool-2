@@ -11,7 +11,8 @@ export default class TransactionDetail extends Component {
   render () {
     const {handleBackClick, transaction} = this.props
     const {reference, email, amount, status, card, startDate, payId,
-      authSucceed, authSubmit, startEnter, paySubmit, paySucceed} = transaction
+      authSucceed, authSubmit, startEnter, paySubmit, paySucceed,
+      failed, failReason} = transaction
 
     return <div>
       <div className='overview'>
@@ -69,6 +70,14 @@ export default class TransactionDetail extends Component {
         <h2 className='trans-evs-heading heading-medium'>Transaction events</h2>
         <table>
           <tbody>
+            {(!isNaN(failed))
+              ? <tr>
+                <td>{failReason}</td>
+                <td>£{amount}.00</td>
+                <td><FormattedTime time={failed} /></td>
+              </tr>
+              : null
+            }
             {(!isNaN(paySucceed))
               ? <tr>
                 <td>Payment successful</td>
