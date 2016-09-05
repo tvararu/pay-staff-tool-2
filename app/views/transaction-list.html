@@ -11,9 +11,9 @@
 		{% include "includes/utility-navigation.html" %}
 	</div>
 <div class="grid-row">
-	<div class="column-quarter"> 
+	<div class="column-quarter">
 
-		{% include "includes/left-navigation.html" %}		
+		{% include "includes/left-navigation.html" %}
 	</div>
 
 	    <div class="column-three-quarters">
@@ -44,7 +44,7 @@
 					  	<select name="select" class="form-control dropdown-list" id="full-name">
 						  	<option value="value1" selected>All transactions</option>
 							<option value="value4">In progress</option>
-							<option value="value1">Successful</option> 
+							<option value="value1">Successful</option>
 							<option value="value5">Failed</option>
 							<option value="value5">Refunds</option>
 						</select>
@@ -62,7 +62,7 @@
 						  	<option value="value1" selected>All types</option>
 						  	<option value="value1">Credit card only</option>
 						  	<option value="value1">Debit card only</option>
-							<option value="value1">Visa</option> 
+							<option value="value1">Visa</option>
 							<option value="value2">Mastercard</option>
 							<option value="value3">American Express</option>
 							<option value="value4">JCB</option>
@@ -76,11 +76,11 @@
 			<!-- </div> -->
 			<!-- <div class="grid-row"> -->
 			 <div class="column-three-quarters filter-fields">
-			 	
+
 			 	<div class="form-group">
 					<legend class="form-label-bold date-label">Date range </legend>
 	        		<div class="form-date">
-			          
+
 				     <div class="form-group">
 				        <p class="form-hint">Date</p>
 		            		<input class="form-control" id="full-name" name="full-name" type="text">
@@ -108,7 +108,7 @@
 				</div>
 
 			 </div>
-			 
+
 				 <div class="column-quarter filter-fields">
 				 	<div class="form-group filter-button">
 		 					<a href="transaction-list"><button class="button filter-button">Filter</button></a>
@@ -117,351 +117,8 @@
 				 </div>
 			</div>
 		<!-- </div>	  -->
-
-			<div class="column-three-quarters filter-fields">
-		      	<h2 class="heading-small">
-	    			45,896 transactions 
-	  			</h2>
-	  			<p><a href="transaction-list">Download a spreadsheet of these transactions</a></p>
-	  			<img class="page-numbers" src="/public/images/next-page.png">
-  			</div>
   			<div class="table-list">
-		      	<table>
-				    <thead>
-				      <tr>
-				        <th scope="col">Reference number</th>
-				        <th scope="col">Email address</th>
-				        <th scope="col">Amount</th>
-				        <th scope="col">Card type</th>
-				        <th scope="col" class="status-column">Payment status</th>
-				        <th scope="col">Date created</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				    <tr class='clickable-row' data-href='transaction-detail'>
-				        <td><a href="transaction-detail">DV712051</a></td>
-				        <td>rickjon1988@virginm...</td>
-				        <td>£200.00</td>
-				        <td>Visa debit</td>
-				        <td>In progress</td>
-				        <td>2 Jul 2016 – 12:45</td>
-				      </tr>
-				       <tr class='clickable-row' data-href='#'>
-				        <td>DV752340</td>
-				        <td>stephenmccarthy@hotm...</td>
-				        <td>£106.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>1 Jul 2016 – 12:40</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				        <td>DV786340</td>
-				        <td>stephen1234@hotmail...</td>
-				        <td>£200.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful<span class="refund-label">Partial refund: £90.00</span></td>      
-				        <td>1 Jul 2016 – 11:08</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				        <td>DV786281</td>
-				        <td>johnadams2008@gmai...</td>
-				        <td>£106.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>      
-				        <td>1 Jul 2016 – 11:01</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				        <td>DV784490</td>
-				        <td>richardadamson98@ao...</td>
-				        <td>£106.00</td>
-				        <td>Visa credit</td>
-				        <td>Successful</td>      
-				        <td>1 Jul 2016 – 11:00</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       <td>DV798657</td>
-				       <td>stephenmccarthy@hotm...</td>
-				        <td>£38.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful<span class="refund-label">Fully refunded</span></td>
-				        <td>1 Jul 2016 – 10:28</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				        <td>DV786288</td>
-				        <td>martinalistair8@gmai...</td>
-				        <td>£55.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>      
-				        <td>1 Jul 2016 – 10:02</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				        <td>DV786292</td>
-				        <td>alistaircarthy12@hotm...</td>
-				        <td>£55.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>      
-				        <td>1 Jul 2016 – 09:01</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       <td>DV798687</td>
-				       <td>stephenmccarthy@hotm...</td>
-				        <td>£89.00</td>
-				        <td>Visa debit</td>
-				        <td>Failed<span class="error-code">Error P0050 – Payment provider returned an error</span></td>
-				        <td>1 Jul 2016 – 08:32</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-failed-error'>
-				       <td>DV798687</td>
-				       <td>stephen12345678@gmai...</td>
-				        <td>£89.00</td>
-				        <td>Visa credit</td>
-				        <td>Failed<span class="error-code">Error P0050 – Payment provider returned an error</span></td>
-				        <td>1 Jul 2016 – 08:32</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-failed-error'>
-				       <td>DV798687</td>
-				       <td>martinalistair8@gmai...</td>
-				        <td>£89.00</td>
-				        <td>Visa debit</td>
-				        <td>Failed<span class="error-code">Error P0050 – Payment provider returned an error</span></td>
-				        <td>1 Jul 2016 – 08:32</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-failed-error'>
-				       <td>DV798687</td>
-				       <td>stephenjordan9@hotm...</td>
-				        <td>£89.00</td>
-				        <td>Visa debit</td>
-				        <td>Failed<span class="error-code">Error P0050 – Payment provider returned an error</span></td>
-				        <td>30 Jun 2016 – 23:39</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-failed-error'>
-				       <td>DV798699</td>
-				       <td>stephenmccarthy@hotm...</td>
-				        <td>£89.00</td>
-				        <td>Mastercard debit</td>
-				        <td>Failed<span class="error-code">Error P0050 – Payment provider returned an error</span></td>
-				        <td>30 Jun 2016 – 23:34</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-successful'>
-				       <td>DV798227</td>
-				       <td>alistaircarthy12@hotm...</td>
-				        <td>£38.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:32</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-failed-user-cancelled'>
-				       <td>DV722122</td>
-				       <td>johnny2mccarthy@hotm...</td>
-				        <td>£120.00</td>
-				        <td>Visa debit</td>
-				        <td>Failed<span class="error-code">User cancelled</span></td>
-				        <td>30 Jun 2016 – 23:30</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-failed-user-cancelled'>
-				       <td>DV722121</td>
-				       <td>robert89mccarthy@hot...</td>
-				        <td>£120.00</td>
-				        <td>Visa debit</td>
-				        <td>Failed<span class="error-code">User cancelled</span></td>
-				        <td>30 Jun 2016 – 23:22</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-successful'>
-				       <td>DV729654</td>
-				       <td>stephenmccar123@gmai...</td>
-				        <td>£58.00</td>
-				        <td>Mastercard debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:22</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-successful'>
-				       <td>DV798644</td>
-				       <td>jordan88carthy@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:18</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-successful'>
-				       <td>DV798644</td>
-				       <td>jordan88carthy@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:18</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-successful'>
-				       <td>DV798621</td>
-				       <td>mardan88carthy@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:18</td>
-				      </tr>
-
-				      <tr class='clickable-row' data-href='staff-transaction-detail-successful'>
-				       	<td>DV798644</td>
-				       	<td>pormao11bitory@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:04</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='staff-transaction-detail-successful'>
-				       	<td>DV798644</td>
-				       	<td>jordan88bikord@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:04</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798123</td>
-				       	<td>alan1988bilord@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:04</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798644</td>
-				       	<td>marthy88bilord@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:04</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798456</td>
-				       	<td>jordan88bilord@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:04</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798644</td>
-				       	<td>arthur88bilord@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:04</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798644</td>
-				       	<td>millod88bilord@hotm...</td>
-				        <td>£200.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:04</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798699</td>
-				       	<td>jordan88bilord@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:04</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798690</td>
-				       	<td>gardan88booord@hotm...</td>
-				        <td>£88.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:04</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798124</td>
-				       	<td>stephen1234@hotmail...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:04</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798633</td>
-				       	<td>johnadams2008@gmai...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:04</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798644</td>
-				       	<td>fardan23bilord@hotm...</td>
-				        <td>£110.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:03</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV792244</td>
-				       	<td>johnadams2008@gmai...</td>
-				        <td>£88.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:03</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798974</td>
-				       	<td>johnadams2008@gmai...</td>
-				        <td>£32.00</td>
-				        <td>Visa credit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:02</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798234</td>
-				       	<td>jordan88bilord@hotm...</td>
-				        <td>£106.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:01</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798644</td>
-				       	<td>stephen1234@hotmail...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:01</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798623</td>
-				       	<td>johnadams2008@gmai...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:01</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV794041</td>
-				       	<td>jordan88bilord@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:01</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798644</td>
-				       	<td>stephen1234@hotmail...</td>
-				        <td>£200.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:00</td>
-				      </tr>
-				      <tr class='clickable-row' data-href='#'>
-				       	<td>DV798334</td>
-				       	<td>jordan88bilord@hotm...</td>
-				        <td>£32.00</td>
-				        <td>Visa debit</td>
-				        <td>Successful</td>
-				        <td>30 Jun 2016 – 23:00</td>
-				      </tr>
-				      
-				    </tbody>
-  				</table>
+          <p>No transactions.</p>
   			</div>
 	</div>
 </div>
