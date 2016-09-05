@@ -18,7 +18,8 @@ PropTypes.transaction = PropTypes.shape({
   authSucceed: PropTypes.instanceOf(Date).isRequired,
   paySubmit: PropTypes.instanceOf(Date).isRequired,
   paySucceed: PropTypes.instanceOf(Date).isRequired,
-  failed: PropTypes.instanceOf(Date).isRequired
+  failed: PropTypes.instanceOf(Date).isRequired,
+  failReason: PropTypes.string
 })
 
 export default PropTypes
