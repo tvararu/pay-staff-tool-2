@@ -20,10 +20,11 @@ export default class TransactionList extends Component {
           <span style={{marginRight: '0.5rem'}}>
             {transactions.length} {(transactions.length === 1) ? 'transaction' : 'transactions'}
           </span>
+          <br />
           <DownloadTransactionsCsv
             transactions={transactions}
           >
-            (download CSV)
+            Download a spreadsheet of these transactions
           </DownloadTransactionsCsv>
         </h2>
       </div>
