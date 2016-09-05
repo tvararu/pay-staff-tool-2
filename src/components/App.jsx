@@ -101,7 +101,7 @@ export default class App extends Component {
     this.setState({ loading: true })
     this.state.gapi.client.sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
-      range: 'Dataset0.1!A' + 2 + ':R' + 101
+      range: 'Dataset0.1!A' + 2 + ':R' + 500
     }).then((response) => {
       this.setState({
         loading: false,
