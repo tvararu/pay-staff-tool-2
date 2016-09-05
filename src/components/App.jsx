@@ -6,6 +6,12 @@ import TransactionList from './TransactionList'
 
 const SPREADSHEET_ID = '1KThLEWTiXyl4j7AueDXq3FOKr_rkoZ57Db6kKChe0LA'
 
+function parseSpreadsheetDate (d) {
+  if (!d) { return '' }
+  const [dd, MM, yyyy, hh, mm, ss] = d.trim().split(/\D/)
+  return `${MM}/${dd}/${yyyy} ${hh}:${mm}:${ss}`
+}
+
 function rowToTransaction (row) {
   return {
     reference: row[0],
@@ -19,13 +25,14 @@ function rowToTransaction (row) {
     provider: row[8],
     gatewayId: row[9],
     payId: row[10],
-    startDate: new Date(Date.parse(row[11])),
-    startEnter: new Date(Date.parse(row[12])),
-    authSubmit: new Date(Date.parse(row[13])),
-    authSucceed: new Date(Date.parse(row[14])),
-    paySubmit: new Date(Date.parse(row[15])),
-    paySucceed: new Date(Date.parse(row[16])),
-    failed: new Date(Date.parse(row[17]))
+    startDate: new Date(parseSpreadsheetDate(row[11])),
+    startEnter: new Date(parseSpreadsheetDate(row[12])),
+    authSubmit: new Date(parseSpreadsheetDate(row[13])),
+    authSucceed: new Date(parseSpreadsheetDate(row[14])),
+    paySubmit: new Date(parseSpreadsheetDate(row[15])),
+    paySucceed: new Date(parseSpreadsheetDate(row[16])),
+    failed: new Date(parseSpreadsheetDate(row[17])),
+    failReason: row[18]
   }
 }
 
