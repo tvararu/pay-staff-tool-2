@@ -8,7 +8,6 @@ var SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
  * Check if current user has authorized this application.
  */
 function checkAuth() {
-  console.log(gapi.auth);
   gapi.auth.authorize(
     {
       'client_id': CLIENT_ID,

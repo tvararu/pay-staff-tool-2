@@ -61,7 +61,7 @@
           var row = range.values[i];
           var item = mapRowToObject(row, i+1);
 
-          // call render function passed 
+          // call render function passed
           // to function
           renderFunc( item );
         }
