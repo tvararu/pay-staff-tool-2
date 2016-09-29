@@ -10,7 +10,7 @@ export default class DownloadTransactionsCsv extends Component {
   render () {
     const {transactions} = this.props
 
-    const keys = ['reference', 'email', 'amount', 'card', 'status', 'subStatus', 'startDate']
+    const keys = ['reference', 'email', 'amount', 'status', 'card', 'provider', 'startDate', 'gatewayId', 'payId']
     const csv = (transactions.length)
       ? [keys.join(',')].concat(
         this.props.transactions.map((transaction) =>
