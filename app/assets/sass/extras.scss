@@ -1,6 +1,7 @@
 // @import 'elements';
 @import 'govuk-elements';
 
+
 #global-header-bar {
 	max-width: 1180px;
 }
@@ -781,6 +782,54 @@ h2.heading-paypoint {
 
 .form-control-5em {
 	max-width: 120px;
+}
+
+.transaction-categories {
+}
+
+.category {
+	display: inline-block;
+	width: 20%;
+	margin-top: 30px;
+	margin-left: 15px;
+}
+
+.category:first-child {
+	margin-left: 0;
+}
+
+.category__amount {
+	color: white;
+	padding: 10px;
+}
+
+.category p {
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+.category__sum {
+	font-weight: 700;
+}
+
+.category--successful .category__amount {
+	background-color: blue;
+}
+.category--failed .category__amount {
+	background-color: gray;
+}
+.category--refunds .category__amount {
+	background-color: red;
+}
+.category--net-income .category__amount {
+	background-color: black;
+}
+
+.arrow {
+	display: inline-block;
+	margin-left: 10px;
+	margin-top: -7px;
+	vertical-align: middle;
 }
 
 

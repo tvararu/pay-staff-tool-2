@@ -3,6 +3,7 @@ import GoogleSheetsApi from './GoogleSheetsApi'
 import TransactionDetail from './TransactionDetail'
 import TransactionFilters from './TransactionFilters'
 import TransactionList from './TransactionList'
+import TransactionCategories from './TransactionCategories'
 
 const SPREADSHEET_ID = '1KThLEWTiXyl4j7AueDXq3FOKr_rkoZ57Db6kKChe0LA'
 
@@ -258,6 +259,11 @@ export default class App extends Component {
             paymentStatus={this.state.filterPaymentStatus}
             referenceNumberOrEmail={this.state.filterReferenceNumberOrEmail}
           />
+          <TransactionCategories 
+            transactions={transactions}
+          />
+
+
           <TransactionList
             handleTransactionClick={this.handleTransactionSelect}
             loading={loading}
