@@ -12,7 +12,7 @@ export default class TransactionDetail extends Component {
     const {handleBackClick, transaction} = this.props
     const {reference, email, amount, status, card, startDate, payId,
       authSucceed, authSubmit, startEnter, paySubmit, paySucceed,
-      failed, failReason} = transaction
+      failed, failReason, provider, gatewayId} = transaction
 
     return <div>
       <div className='overview'>
@@ -49,7 +49,7 @@ export default class TransactionDetail extends Component {
               </tr>
               <tr>
                 <td>Provider:</td>
-                <td>Barclays</td>
+                <td>{provider}</td>
               </tr>
               <tr>
                 <td>Time:</td>
@@ -57,7 +57,7 @@ export default class TransactionDetail extends Component {
               </tr>
               <tr>
                 <td>Transaction ID:</td>
-                <td>20150602153345</td>
+                <td>{gatewayId}</td>
               </tr>
               <tr>
                 <td>GOV.UK payment ID:</td>
