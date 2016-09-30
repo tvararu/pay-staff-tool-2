@@ -939,6 +939,9 @@ body {
 
 .remove-confirmation .button {
 	@include button($error-colour); 
+}
+
+.button { 
 	padding-top: 5px;
 }
 
