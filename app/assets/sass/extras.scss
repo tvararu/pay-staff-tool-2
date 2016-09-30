@@ -926,3 +926,23 @@ body {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+
+
+.remove-confirmation {
+	border: 5px solid $error-colour;
+	padding: 15px;
+
+}
+.remove-confirmation p {
+	font-weight: 700;
+}
+
+.remove-confirmation .button {
+	@include button($error-colour); 
+	padding-top: 5px;
+}
+
+.remove-cancel {
+	line-height: 40px;
+	padding: 0 15px;
+}
