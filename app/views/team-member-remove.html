@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Transaction list
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+<div class="grid-row">
+		{% include "includes/utility-navigation.html" %}
+</div>
+	
+	<div class="grid-row">
+		
+		<div class="column-quarter">
+
+		{% include "includes/left-navigation.html" %}		
+		</div>
+
+	    <div class="column-three-quarters">
+	      <h1 class="heading-large underline">Team Members</h1>
+	      	<div class="overview">
+	      	<div class="back">
+				<a href="javascript:history.back()">&#9664; Back to all members</a>
+			</div>
+	      		<h2 class="heading-medium staff-subheading">
+    				John Smith
+  				</h2>
+  				<p>
+  				john.smith@email.com
+  				</p>
+		</div>
+
+		<div class="column-three-quarters filter-fields">
+				
+		    <table>
+		      	<tbody>
+			      	<tr>
+			      		<td>
+			      			<h4 class="heading-small">Member details</h2>
+			      		</td>
+			      		<td></td>
+			      		<td></td> 
+			      	</tr>
+			      	<tr>
+			      		<td>Permission level:</td> 
+			      		<td>View and refund</td>
+			      		<td><a href="#">Edit permissions</a></td>
+			      	</tr>
+			      	<tr>
+						<td>Start date:</td>
+						<td>10 Sep 2016 – 11:14:22</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Last active:</td> 
+						<td>12 Sep 2016 – 10:44:16</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Organisation:</td> 
+						<td>Ministry of Justice</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Service:</td> 
+						<td>Money to Prisoners</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<div class="remove-confirmation">
+  				<p>Are you sure you want to remove John Smith?</p>
+  				<input class="button" type="submit" value="Yes, remove">
+  				<a href="/team-member-detail" class="remove-cancel">Cancel</a>
+			</div>
+		</div>
+		
+	</div>
+
+</div>
+</main>
+
+{% endblock %}
