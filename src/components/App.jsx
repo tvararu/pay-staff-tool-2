@@ -259,11 +259,9 @@ export default class App extends Component {
             paymentStatus={this.state.filterPaymentStatus}
             referenceNumberOrEmail={this.state.filterReferenceNumberOrEmail}
           />
-          <TransactionCategories 
+          <TransactionCategories
             transactions={transactions}
           />
-
-
           <TransactionList
             handleTransactionClick={this.handleTransactionSelect}
             loading={loading}

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from '../propTypes'
 import InputText from './InputText'
+import DatePicker from 'react-datepicker'
+import moment from 'moment'
+import 'react-datepicker/dist/react-datepicker.css'
 
 export default class TransactionFilters extends Component {
   static propTypes = {
@@ -117,11 +120,11 @@ export default class TransactionFilters extends Component {
             <div className='form-date'>
               <div className='form-group'>
                 <p className='form-hint'><label htmlFor='date-from-date'>Date</label></p>
-                <InputText
+                <DatePicker
+                  className='form-control'
                   id='date-from-date'
-                  onChange={handleFromDateChange}
-                  value={fromDate}
-                  onSubmit={handleFilterButtonClick}
+                  selected={moment(fromDate)}
+                  onChange={(thing) => console.log(thing)}
                 />
                 <p className='form-hint-small'>eg 25/11/2015</p>
               </div>
