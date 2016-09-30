@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Transaction list
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+<div class="grid-row">
+		{% include "includes/utility-navigation.html" %}
+</div>
+	
+<div class="grid-row">
+		
+	<div class="column-quarter">
+		{% include "includes/left-navigation.html" %}		
+	</div>
+
+	<div class="column-three-quarters">
+	    <h1 class="heading-large underline">Team Members</h1>
+	      	<div class="overview">
+	      		<div class="column-one-half team-active">
+		      		<h2 class="heading-medium staff-subheading">
+	    				Active (7)
+	  				</h2>
+  				</div>
+  				<div class="column-one-half invite-button">
+	  				<input class="button" type="submit" value="Invite a team member">
+  				</div>
+		</div>
+
+
+		<div class="column-three-quarters filter-fields">
+				
+		    <table>
+		    	
+		      	<tbody>
+		      		<tr>
+		      			<td class="permissions-type">Administrators (2)</td>
+		      		</tr>
+			      	<tr>
+			      		<td>Alison Wilson (you)</td>
+			      	</tr>
+			      	<tr>
+			      		<td>Lois Gonzalez</td>
+			      	</tr>
+				</tbody>
+				<tbody>
+			</table>
+			<table>	
+		      		<tr>
+		      			<td class="permissions-type">View and refund (3)</td>
+		      		</tr>
+			      	<tr>
+			      		<td>John Smith</td>
+			      	</tr>
+			      	<tr>
+			      		<td>Richard Pardy</td>
+			      	</tr>
+			      	<tr>
+			      		<td>Maria O'Toole</td>
+			      	</tr>
+				</tbody>
+			</table>
+			<table>
+				<tbody>
+		      		<tr>
+		      			<td class="permissions-type">View only (2)</td>
+		      		</tr>
+			      	<tr>
+			      		<td>Joe Bloggs</td>
+			      	</tr>
+			      	<tr>
+			      		<td>Oscar Smith</td>
+			      	</tr>
+				</tbody>
+			</table>
+			
+		</div>
+	
+	</div>
+
+</div>
+</main>
+
+{% endblock %}
