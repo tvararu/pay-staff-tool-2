@@ -4,6 +4,7 @@ import TransactionDetail from './TransactionDetail'
 import TransactionFilters from './TransactionFilters'
 import TransactionList from './TransactionList'
 import TransactionCategories from './TransactionCategories'
+import moment from 'moment'
 
 const SPREADSHEET_ID = '1KThLEWTiXyl4j7AueDXq3FOKr_rkoZ57Db6kKChe0LA'
 
@@ -70,9 +71,9 @@ export default class App extends Component {
     filterCardType: 'All types',
     filterPaymentStatus: 'All transactions',
     filterReferenceNumberOrEmail: '',
-    filterFromDate: '',
+    filterFromDate: moment(),
     filterFromTime: '',
-    filterToDate: '',
+    filterToDate: moment(),
     filterToTime: '',
     gapi: false,
     loading: true,
@@ -152,8 +153,8 @@ export default class App extends Component {
     this.setState({ filterReferenceNumberOrEmail: value })
   }
 
-  handleFromDateChange (value) {
-    this.setState({ filterFromDate: value })
+  handleFromDateChange (m) {
+    this.setState({ filterFromDate: m })
   }
 
   handleFromTimeChange (value) {
@@ -215,9 +216,9 @@ export default class App extends Component {
       filterCardType: 'All types',
       filterPaymentStatus: 'All transactions',
       filterReferenceNumberOrEmail: '',
-      filterFromDate: '',
+      filterFromDate: moment(),
       filterFromTime: '',
-      filterToDate: '',
+      filterToDate: moment(),
       filterToTime: ''
     })
   }

@@ -3,6 +3,7 @@ import PropTypes from '../propTypes'
 import InputText from './InputText'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
+window.moment = moment
 import 'react-datepicker/dist/react-datepicker.css'
 
 export default class TransactionFilters extends Component {
@@ -28,9 +29,9 @@ export default class TransactionFilters extends Component {
       'Successful',
       'Failed'
     ]).isRequired,
-    fromDate: PropTypes.string.isRequired,
+    fromDate: PropTypes.instanceOf(moment).isRequired,
     fromTime: PropTypes.string.isRequired,
-    toDate: PropTypes.string.isRequired,
+    toDate: PropTypes.instanceOf(moment).isRequired,
     toTime: PropTypes.string.isRequired,
     handleFromDateChange: PropTypes.func.isRequired,
     handleFromTimeChange: PropTypes.func.isRequired,
@@ -122,9 +123,12 @@ export default class TransactionFilters extends Component {
                 <p className='form-hint'><label htmlFor='date-from-date'>Date</label></p>
                 <DatePicker
                   className='form-control'
+                  dateFormat='DD/MM/YYYY'
                   id='date-from-date'
-                  selected={moment(fromDate)}
-                  onChange={(thing) => console.log(thing)}
+                  maxDate={toDate}
+                  onChange={handleFromDateChange}
+                  selected={fromDate}
+                  todayButton={'Today'}
                 />
                 <p className='form-hint-small'>eg 25/11/2015</p>
               </div>
@@ -143,11 +147,14 @@ export default class TransactionFilters extends Component {
               </div>
               <div className='form-group'>
                 <p className='form-hint'><label htmlFor='date-to-date'>Date</label></p>
-                <InputText
+                <DatePicker
+                  className='form-control'
+                  dateFormat='DD/MM/YYYY'
                   id='date-to-date'
+                  minDate={fromDate}
                   onChange={handleToDateChange}
-                  value={toDate}
-                  onSubmit={handleFilterButtonClick}
+                  selected={toDate}
+                  todayButton={'Today'}
                 />
                 <p className='form-hint-small'>eg 27/11/2015</p>
               </div>
