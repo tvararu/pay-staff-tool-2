@@ -790,7 +790,7 @@ h2.heading-paypoint {
 .category {
 	display: inline-block;
 	width: 20%;
-	margin-top: 30px;
+	margin-top: 10px;
 	margin-left: 15px;
 }
 
@@ -813,13 +813,13 @@ h2.heading-paypoint {
 }
 
 .category--successful .category__amount {
-	background-color: blue;
+	background-color: #005EA5;
 }
 .category--failed .category__amount {
 	background-color: gray;
 }
 .category--refunds .category__amount {
-	background-color: red;
+	background-color: #DF3034;
 }
 .category--net-income .category__amount {
 	background-color: black;

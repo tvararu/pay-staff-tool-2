@@ -15,9 +15,11 @@ export default class TransactionCategories extends Component {
     var netIncomeAmount = txSuccessfulAmount - txRefundsAmount
     return (
       <div>
+      <h2 className='heading-small'>
         <span>
           {transactions.length} {(transactions.length === 1) ? 'transaction' : 'transactions'}
         </span>
+      </h2>
         <div className="transaction-categories">
           <div className="category category--successful">
             <p>Successful</p>

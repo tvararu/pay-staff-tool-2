@@ -17,10 +17,6 @@ export default class TransactionList extends Component {
     return <div>
       <div className='column-three-quarters filter-fields'>
         <h2 className='heading-small'>
-          <span style={{marginRight: '0.5rem'}}>
-            {transactions.length} {(transactions.length === 1) ? 'transaction' : 'transactions'}
-          </span>
-          <br />
           <DownloadTransactionsCsv
             transactions={transactions}
           >
