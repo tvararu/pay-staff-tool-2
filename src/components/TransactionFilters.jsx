@@ -23,7 +23,8 @@ export default class TransactionFilters extends Component {
       'All transactions',
       'In progress',
       'Successful',
-      'Failed'
+      'Failed',
+      'Refunds'
     ]).isRequired,
     fromDate: PropTypes.string.isRequired,
     fromTime: PropTypes.string.isRequired,
@@ -82,6 +83,7 @@ export default class TransactionFilters extends Component {
                 <option value='In progress'>In progress</option>
                 <option value='Successful'>Successful</option>
                 <option value='Failed'>Failed</option>
+                <option value='Refunds'>Refunds</option>
               </select>
             </div>
           </div>
