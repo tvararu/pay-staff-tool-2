@@ -959,6 +959,25 @@ body {
 }
 .invite-button {
 	margin-top: 10px;
+
 }
 
+.radio-2 {
+	font-weight: 700;
+}
+
+.permission-main {
+	.block-label {
+		background-color: #fff;
+		border: none;
+	}
+}
+
+.permission-list {
+	color: $secondary-text-colour;
+}
+
+.permission-main-type {
+	font-weight: 700;
+}
 
