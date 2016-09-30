@@ -20,14 +20,20 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loaders: ['babel'],
-      query: {
-        plugins: ['react-hot-loader/babel'],
-        presets: ['es2015', 'stage-0', 'react']
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loaders: ['babel'],
+        query: {
+          plugins: ['react-hot-loader/babel'],
+          presets: ['es2015', 'stage-0', 'react']
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css'
       }
-    }]
+    ]
   }
 }
