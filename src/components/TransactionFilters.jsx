@@ -29,6 +29,8 @@ export default class TransactionFilters extends Component {
       'Successful',
       'Failed'
     ]).isRequired,
+    minDate: PropTypes.instanceOf(moment).isRequired,
+    maxDate: PropTypes.instanceOf(moment).isRequired,
     fromDate: PropTypes.instanceOf(moment).isRequired,
     fromTime: PropTypes.string.isRequired,
     toDate: PropTypes.instanceOf(moment).isRequired,
@@ -47,7 +49,7 @@ export default class TransactionFilters extends Component {
       handleCardTypeChange, handlePaymentStatusChange, cardType, paymentStatus,
       fromDate, fromTime, toDate, toTime,
       handleFromDateChange, handleFromTimeChange, handleToDateChange, handleToTimeChange,
-      applyFilter, handleResetFilters
+      applyFilter, handleResetFilters, minDate, maxDate
     } = this.props
 
     return <div>
@@ -125,6 +127,7 @@ export default class TransactionFilters extends Component {
                   className='form-control'
                   dateFormat='DD/MM/YYYY'
                   id='date-from-date'
+                  minDate={minDate}
                   maxDate={toDate}
                   onChange={handleFromDateChange}
                   selected={fromDate}
@@ -152,6 +155,7 @@ export default class TransactionFilters extends Component {
                   dateFormat='DD/MM/YYYY'
                   id='date-to-date'
                   minDate={fromDate}
+                  maxDate={maxDate}
                   onChange={handleToDateChange}
                   selected={toDate}
                   todayButton={'Today'}
