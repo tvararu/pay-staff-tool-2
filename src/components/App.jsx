@@ -4,6 +4,7 @@ import TransactionDetail from './TransactionDetail'
 import TransactionFilters from './TransactionFilters'
 import TransactionList from './TransactionList'
 import TransactionCategories from './TransactionCategories'
+import moment from 'moment'
 
 const SPREADSHEET_ID = '1KThLEWTiXyl4j7AueDXq3FOKr_rkoZ57Db6kKChe0LA'
 
@@ -70,10 +71,12 @@ export default class App extends Component {
     filterCardType: 'All types',
     filterPaymentStatus: 'All transactions',
     filterReferenceNumberOrEmail: '',
-    filterFromDate: '',
-    filterFromTime: '',
-    filterToDate: '',
-    filterToTime: '',
+    filterMinDate: moment(),
+    filterMaxDate: moment(),
+    filterFromDate: moment(),
+    filterFromTime: '00:00:00',
+    filterToDate: moment(),
+    filterToTime: '23:59:59',
     gapi: false,
     loading: true,
     selectedTransaction: null,
@@ -111,9 +114,24 @@ export default class App extends Component {
       spreadsheetId: SPREADSHEET_ID,
       range: 'Dataset0.1!A' + 2 + ':S' + 500
     }).then((response) => {
+      const transactions = response.result.values.map(rowToTransaction)
+      let keyDates = transactions.reduce((kd, curr) => {
+        if (curr.startDate < kd.min) { kd.min = curr.startDate }
+        if (curr.startDate > kd.max) { kd.max = curr.startDate }
+        return kd
+      }, {
+        min: transactions[0].startDate,
+        max: transactions[0].startDate
+      })
+      keyDates.min = moment(keyDates.min)
+      keyDates.max = moment(keyDates.max)
       this.setState({
         loading: false,
-        transactions: response.result.values.map(rowToTransaction)
+        transactions,
+        filterMinDate: keyDates.min,
+        filterMaxDate: keyDates.max,
+        filterFromDate: keyDates.min,
+        filterToDate: keyDates.max
       })
     }, (response) => {
       console.log('Error: ' + response.result.error.message)
@@ -152,8 +170,8 @@ export default class App extends Component {
     this.setState({ filterReferenceNumberOrEmail: value })
   }
 
-  handleFromDateChange (value) {
-    this.setState({ filterFromDate: value })
+  handleFromDateChange (m) {
+    this.setState({ filterFromDate: m })
   }
 
   handleFromTimeChange (value) {
@@ -189,8 +207,8 @@ export default class App extends Component {
     }
 
     const filterByDate = (tr) => {
-      const fromDate = getFromDate(this.state.filterFromDate, this.state.filterFromTime)
-      const toDate = getToDate(this.state.filterToDate, this.state.filterToTime)
+      const fromDate = getFromDate(this.state.filterFromDate.format('DD/MM/YYYY'), this.state.filterFromTime)
+      const toDate = getToDate(this.state.filterToDate.format('DD/MM/YYYY'), this.state.filterToTime)
       const isBetween = isBetweenDates(tr.startDate, fromDate, toDate)
       return isBetween
     }
@@ -215,10 +233,10 @@ export default class App extends Component {
       filterCardType: 'All types',
       filterPaymentStatus: 'All transactions',
       filterReferenceNumberOrEmail: '',
-      filterFromDate: '',
-      filterFromTime: '',
-      filterToDate: '',
-      filterToTime: ''
+      filterFromDate: moment(),
+      filterFromTime: '00:00:00',
+      filterToDate: moment(),
+      filterToTime: '23:59:59'
     })
   }
 
@@ -252,6 +270,8 @@ export default class App extends Component {
             handleToTimeChange={this.handleToTimeChange}
             handleResetFilters={this.handleResetFilters}
             cardType={this.state.filterCardType}
+            minDate={this.state.filterMinDate}
+            maxDate={this.state.filterMaxDate}
             fromDate={this.state.filterFromDate}
             fromTime={this.state.filterFromTime}
             toDate={this.state.filterToDate}
@@ -259,11 +279,9 @@ export default class App extends Component {
             paymentStatus={this.state.filterPaymentStatus}
             referenceNumberOrEmail={this.state.filterReferenceNumberOrEmail}
           />
-          <TransactionCategories 
+          <TransactionCategories
             transactions={transactions}
           />
-
-
           <TransactionList
             handleTransactionClick={this.handleTransactionSelect}
             loading={loading}
