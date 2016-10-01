@@ -926,3 +926,62 @@ body {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+
+
+.remove-confirmation {
+	border: 5px solid $error-colour;
+	padding: 15px;
+
+}
+.remove-confirmation p {
+	font-weight: 700;
+}
+
+.remove-confirmation .button {
+	@include button($error-colour); 
+}
+
+.button { 
+	padding-top: 5px;
+}
+
+.remove-cancel {
+	line-height: 40px;
+	padding: 0 15px;
+}
+
+.permissions-type {
+	font-weight: 700;
+}
+
+.team-active {
+	padding-left: 0;
+}
+.invite-button {
+	margin-top: 10px;
+
+}
+
+.radio-2 {
+	font-weight: 700;
+}
+
+.permission-main {
+	.block-label {
+		background-color: #fff;
+		border: none;
+	}
+}
+
+.permission-list {
+	color: $secondary-text-colour;
+}
+
+.permission-main-type {
+	font-weight: 700;
+}
+
+.edit-permissions {
+	font-weight: 700;
+}
+

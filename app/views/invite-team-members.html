@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Transaction list
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+<div class="grid-row">
+		{% include "includes/utility-navigation.html" %}
+</div>
+	
+<div class="grid-row">
+		
+	<div class="column-quarter">
+		{% include "includes/left-navigation.html" %}		
+	</div>
+
+	<div class="column-three-quarters">
+	    <h1 class="heading-large underline">Team Members</h1>
+      	<div class="overview">
+      		<div class="column-one-half team-active">
+	      		<h2 class="heading-medium staff-subheading">
+    				Invite a team member
+  				</h2>
+				</div>
+		</div>
+	</div>
+	
+	<div class="column-one-half">
+		<form action="email" class="form">
+            <div class="form-group">
+              <label class="form-label" for="full-name">Full name</label>
+              <input type="text" class="form-control" id="full-name">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">
+                Email
+                <span class="form-hint">
+                  Must be a government email address
+                </span>
+              </label>
+              <input type="text" class="form-control" id="email">
+            </div>
+        </form>
+        <h3 class="heading-small">Permission level</h3>
+        
+        <form class="permission-main">
+			<div class="form-group">
+			    <fieldset>
+
+		      	<legend class="visuallyhidden">Permission level</legend>
+
+		      	<label class="block-label" for="radio-1">
+		        <input id="radio-1" type="radio" name="radio-group" value="Administrator">
+		        <span class="permission-main-type">Administrator</span>
+			        <ul class="permission-list">
+			        	<li>View and change settings</li>
+			        	<li>Edit data, e.g. refund a payment</li>
+			        	<li>View data, e.g. transactions</li>
+			        </ul>
+		      	</label>
+		      	<label class="block-label" for="radio-2">
+			        <input id="radio-2" type="radio" name="radio-group" value="View and refund">
+			        <span class="permission-main-type">View and refund</span>
+			        <ul class="permission-list">
+				        	<li>Edit data, e.g. refund a payment</li>
+				        	<li>View data, e.g. transactions</li>
+				        	<li>Cannot view or edit settings</li>
+				    </ul>
+		        </label>
+		     	<label class="block-label" for="radio-3">
+			        <input id="radio-3" type="radio" name="radio-group" value="View only">
+			        <span class="permission-main-type">View only</span>
+			        <ul class="permission-list">
+				        	<li>View data, e.g. transactions</li>
+				        	<li>Cannot edit data</li>
+				        	<li>Cannot view or edit settings</li>
+			        </ul>
+		      	</label>
+
+			  	</fieldset>
+			</div>
+		</form>
+		
+		<div class="form-group">
+	          	<a href="#">
+            	<input class="button" type="submit" value="Send invitation email">
+          		</a>  
+      		  </div>
+		      <p>
+		        <a href="#">Cancel</a>
+		      </p>
+	</div>
+
+</div>
+</main>
+
+{% endblock %}
