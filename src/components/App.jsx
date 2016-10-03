@@ -193,8 +193,12 @@ export default class App extends Component {
     }
 
     const filterPaymentStatus = (tr) => {
-      // TODO: Handle refunds.
-      if (this.state.filterPaymentStatus === 'All transactions') { return true }
+      if (this.state.filterPaymentStatus === 'Refunds') {
+        return tr.status === 'Refund'
+      }
+      if (this.state.filterPaymentStatus === 'All transactions') {
+        return true
+      }
       return tr.status === this.state.filterPaymentStatus
     }
 
