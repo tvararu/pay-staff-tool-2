@@ -135,6 +135,7 @@ tr.clickable-row:hover {
 .form-label-bold .form-hint {
 	font-size: 16px;
 	color: #0B0C0C;
+	margin-bottom: 5px;
 }
 
 .form-hint {
@@ -152,12 +153,16 @@ tr.clickable-row:hover {
 }
 
 .date-label {
-	margin-bottom: 0px!important;
+	margin-bottom: -5px!important;
 }
 
 .form-date .form-group {
 	width: 122px;
 	margin-right: 5px;
+}
+
+.filter-fields .form-group {
+	margin-bottom: 20px;
 }
 
 .form-control {
@@ -166,7 +171,7 @@ tr.clickable-row:hover {
 
 .filter-section {
 	background-color: #DEE0E2;
-	height: 240px;
+	height: 220px;
 	padding: 20px;
 	overflow: hidden;
 }
@@ -248,16 +253,16 @@ tr.clickable-row:hover {
 }
 
 .filter-button {
-	margin-top: 30px;
+	margin-top: 40px;
 	margin-left: 0px;
 	padding-top: 5px;
 	height: 30px;
 
 	a {
 		display: inline-block;
-		font-size: 16px;
+		font-size: 19px;
 		margin-left: 10px;
-		margin-top: 15px;
+		margin-top: 0px;
 	}
 }
 
@@ -581,7 +586,7 @@ tr.table-colour-grey:hover {
 
 .form-label-bold {
 	font-size: 16px;
-	margin-bottom: 5px;
+	margin-bottom: 2px;
 }
 
 
@@ -834,6 +839,11 @@ h2.heading-paypoint {
 
 .get-in-touch {
 	margin-top: 30px;
+}
+
+.filter-fields .heading-small {
+	font-weight: 400;
+	margin-bottom: 30px;
 }
 
 
