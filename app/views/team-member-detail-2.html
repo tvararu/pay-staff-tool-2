@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Transaction list
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+<div class="grid-row">
+		{% include "includes/utility-navigation.html" %}
+</div>
+	
+	<div class="grid-row">
+<!-- Left nav -->
+		<div class="column-quarter">
+
+
+
+		{% include "includes/left-navigation.html" %}		
+		</div>
+
+	    <div class="column-three-quarters">
+
+<!-- Main body -->
+	      <h1 class="heading-large underline">Team Members</h1>
+	      	<div class="overview">
+	      	<div class="back">
+				<a href="/team-members">&#9664; Back to all members</a>
+			</div>
+	      		<h2 class="heading-medium staff-subheading">
+    				Oscar Smith
+  				</h2>
+  				<p>
+  				Oscar.smith@email.gov.uk
+  				</p>
+		</div>
+
+		<div class="column-three-quarters filter-fields">
+				
+		    <table>
+		      	<tbody>
+			      	<tr>
+			      		<td>
+			      			<h2 class="heading-small">Member details</h2>
+			      		</td>
+			      		<td></td>
+			      		<td></td> 
+			      	</tr>
+			      	<tr>
+			      		<td>Permission level:</td> 
+			      		<td>View only</td>
+			      		<td><a href="/edit-permissions">Edit permissions</a></td>
+			      	</tr>
+			      	<tr>
+						<td>Start date:</td>
+						<td>8 Sep 2016 – 11:14:22</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Last active:</td> 
+						<td>28 Sep 2016 – 10:44:16</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Organisation:</td> 
+						<td>Ministry of Government</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Service:</td> 
+						<td>Money to Government/td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+			<p>
+  				<a href="/team-member-remove">Remove user</a>
+			</p>
+		</div>
+	
+	</div>
+
+</div>
+</main>
+
+{% endblock %}

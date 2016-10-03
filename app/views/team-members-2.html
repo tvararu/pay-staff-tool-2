@@ -12,26 +12,14 @@
 </div>
 	
 <div class="grid-row">
-	
-<!-- Left nav -->
-
+	<!-- Left nav -->	
 	<div class="column-quarter">
 		{% include "includes/left-navigation.html" %}		
 	</div>
 
-<!-- Invite confirmation box -->
-
-	<div class="column-one-half">
-		<div class="govuk-box-highlight">
-			<p>Invite sent to paul.murphy@digital.ministry.gov.uk</p>
-		</div>
-	</div>
+	<!-- Main body -->
 
 	<div class="column-three-quarters">
-
-
-<!-- Invite button -->
-
 	    <h1 class="heading-large underline">Team Members</h1>
 	      	<div class="overview">
 	      		<div class="column-one-half team-active">
@@ -39,14 +27,16 @@
 	    				Active (7)
 	  				</h2>
   				</div>
+
+  	<!-- Invite button -->			
   				<div class="column-one-half invite-button">
-	  				<a href="/invite-team-members">
-		  				<input class="button" type="submit" value="Invite a team member">
+  					<a href="/invite-team-members">
+	  					<input class="button" type="submit" value="Invite a team member">
 	  				</a>
   				</div>
 			</div>
 
-
+	<!-- Team members list -->
 		<div class="column-three-quarters filter-fields">
 				
 		    <table>
@@ -55,7 +45,7 @@
 		      		<tr>
 		      			<td class="permissions-type">Administrators (2)</td>
 		      		</tr>
-			      	<tr>
+			      	<tr class='clickable-row' data-href='team-member-detail'>
 			      		<td>John Smith (you)</td>
 			      	</tr>
 			      	<tr>
@@ -66,7 +56,7 @@
 			</table>
 			<table>	
 		      		<tr>
-		      			<td class="permissions-type">View and refund (3)</td>
+		      			<td class="permissions-type">View and refund (4)</td>
 		      		</tr>
 			      	<tr>
 			      		<td>Alison Wilson</td>
@@ -77,48 +67,26 @@
 			      	<tr>
 			      		<td>Maria O'Toole</td>
 			      	</tr>
+			      	<tr>
+			      		<td>Oscar Smith</td>
+			      	</tr>
 				</tbody>
 			</table>
 			<table>
 				<tbody>
 		      		<tr>
-		      			<td class="permissions-type">View only (2)</td>
+		      			<td class="permissions-type">View only (1)</td>
 		      		</tr>
 			      	<tr>
 			      		<td>Joe Bloggs</td>
 			      	</tr>
-			      	<tr>
-			      		<td>Oscar Smith</td>
-			      	</tr>
 				</tbody>
-			</table>		
-		</div>
-
-		<div class="overview">
-      		<div class="column-one-half team-active">
-	      		<br/>
-	      		<h2 class="heading-medium staff-subheading">
-					Invited (1)
-  				</h2>
-			</div>
-		</div>
-		<div class="column-three-quarters filter-fields">
-	
-		    <table>
-		    	
-		      	<tbody>
-		      		<tr>
-		      			<td class="permissions-type">View and refund (1)</td>
-		      			<td></td>
-		      		</tr>
-			      	<tr>
-			      		<td>Paul Murphy</td>
-			      		<td><a href="team-members">Cancel invitation</a></td>
-			      	</tr>
-				</tbody>
-				<tbody>
 			</table>
+			
+		</div>
+	
 	</div>
+
 </div>
 </main>
 
