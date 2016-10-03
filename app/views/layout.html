@@ -2,14 +2,19 @@
 
 {% block head %}
   {% include "includes/head.html" %}
-  {% include "includes/header-govuk-pay.html" %}
 {% endblock %}
 
 {% block cookie_message %}
   <p>{{cookieText | safe }}</p>
 {% endblock %}
 
+{% block inside_header %}
+  <span class="product-name">Pay</span>
+{% endblock %}
+
+
 {% block proposition_header %}
+  {% include "includes/header-govuk-pay.html" %}
   {% include "includes/propositional_navigation.html" %}
 {% endblock %}
 

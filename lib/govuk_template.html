@@ -47,29 +47,17 @@
     </div>
 
     
-    <header role="banner" id="global-header" class="with-proposition">
+    <header role="banner" id="global-header" class="{% block header_class %}{% endblock %}">
       <div class="header-wrapper">
         <div class="header-global">
           <div class="header-logo">
             <a href="{{ homepage_url|default('https://www.gov.uk') }}" title="{{ logo_link_title|default('Go to the GOV.UK homepage') }}" id="logo" class="content">
-              <img src="{{ asset_path }}images/gov.uk_logotype_crown_invert_trans.png?0.17.3" width="35" height="31" alt=""> GOV.UK <span class="product-name">Pay</span>
+              <img src="{{ asset_path }}images/gov.uk_logotype_crown_invert_trans.png?0.17.3" width="35" height="31" alt=""> {{ global_header_text|default('GOV.UK') }}
             </a>
           </div>
           {% block inside_header %}{% endblock %}
         </div>
-        <div class="header-proposition" style="margin-top: 4px;">
-          <div class="content">
-            <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
-            <nav id="proposition-menu">
-              <ul id="proposition-links" class="right-aligned">
-                <li><a href="https://payments:team@pay-staff-tool-2.herokuapp.com/sign-in">Sign out</a></li>
-                <li><a href="https://gds-payments.gelato.io/">Documentation</a></li>
-                <li><a href="https://gds-payments.gelato.io/docs/versions/1.0.0/before-you-start">Get started</a></li>
-                <li><a href="#">About</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+        {% block proposition_header %}{% endblock %}
       </div>
     </header>
     
