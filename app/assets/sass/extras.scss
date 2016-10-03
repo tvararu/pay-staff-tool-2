@@ -1,6 +1,23 @@
 // @import 'elements';
 @import 'govuk-elements';
 
+.product-name {
+  font-weight: 400;
+  padding-left: 5px;
+  font-size: 24px;
+}
+
+#global-header .full-width,
+#global-header-bar.full-width{
+  max-width: 100%;
+}
+
+#global-header .header-proposition #proposition-links.right-aligned{
+  li{
+    float: right;
+      padding: 0 0 0 15px;
+  }
+}
 
 #global-header-bar {
 	max-width: 1180px;
@@ -22,9 +39,9 @@
 	margin-bottom: 10px;
 }
 
-a#logo::after {
-    content: "Pay";
-}
+// a#logo::after {
+//     content: "Pay";
+// }
 
 .column-three-quarters {
 	@include grid-column( 3/4 );
@@ -54,7 +71,7 @@ a#logo::after {
 
 .utility-nav li {
 	display: inline;
-	margin-right: 15px;
+	margin-right: -10px;
 	font-size: 16px;
 }
 .utility-nav li:nth-child(2) {
