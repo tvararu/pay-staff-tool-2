@@ -12,10 +12,14 @@
 </div>
 	
 <div class="grid-row">
-		
+	
+<!-- Left nav -->
+
 	<div class="column-quarter">
 		{% include "includes/left-navigation.html" %}		
 	</div>
+
+<!-- Invite confirmation box -->
 
 	<div class="column-one-half">
 		<div class="govuk-box-highlight">
@@ -26,6 +30,8 @@
 	<div class="column-three-quarters">
 
 
+<!-- Invite button -->
+
 	    <h1 class="heading-large underline">Team Members</h1>
 	      	<div class="overview">
 	      		<div class="column-one-half team-active">
@@ -34,7 +40,9 @@
 	  				</h2>
   				</div>
   				<div class="column-one-half invite-button">
-	  				<input class="button" type="submit" value="Invite a team member">
+	  				<a href="/invite-team-members">
+		  				<input class="button" type="submit" value="Invite a team member">
+	  				</a>
   				</div>
 			</div>
 
@@ -48,7 +56,7 @@
 		      			<td class="permissions-type">Administrators (2)</td>
 		      		</tr>
 			      	<tr>
-			      		<td>Alison Wilson (you)</td>
+			      		<td>John Smith (you)</td>
 			      	</tr>
 			      	<tr>
 			      		<td>Lois Gonzalez</td>
@@ -61,7 +69,7 @@
 		      			<td class="permissions-type">View and refund (3)</td>
 		      		</tr>
 			      	<tr>
-			      		<td>John Smith</td>
+			      		<td>Alison Wilson</td>
 			      	</tr>
 			      	<tr>
 			      		<td>Richard Pardy</td>
@@ -101,10 +109,11 @@
 		      	<tbody>
 		      		<tr>
 		      			<td class="permissions-type">View and refund (1)</td>
+		      			<td></td>
 		      		</tr>
 			      	<tr>
 			      		<td>Paul Murphey</td>
-			      		<td><a href="#">Cancel invitation</a></td>
+			      		<td><a href="team-members">Cancel invitation</a></td>
 			      	</tr>
 				</tbody>
 				<tbody>

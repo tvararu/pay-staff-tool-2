@@ -12,17 +12,20 @@
 </div>
 	
 	<div class="grid-row">
-		
+
+<!-- Left nav -->		
 		<div class="column-quarter">
 
 		{% include "includes/left-navigation.html" %}		
 		</div>
 
+<!-- Main body -->		
+
 	    <div class="column-three-quarters">
 	      <h1 class="heading-large underline">Team Members</h1>
 	      	<div class="overview">
 	      	<div class="back">
-				<a href="javascript:history.back()">&#9664; Back to all members</a>
+				<a href="/team-members">&#9664; Back to all members</a>
 			</div>
 	      		<h2 class="heading-medium staff-subheading">
     				John Smith
@@ -46,7 +49,7 @@
 			      	<tr>
 			      		<td>Permission level:</td> 
 			      		<td>View and refund</td>
-			      		<td><a href="#">Edit permissions</a></td>
+			      		<td><a href="edit-permissions">Edit permissions</a></td>
 			      	</tr>
 			      	<tr>
 						<td>Start date:</td>
@@ -71,10 +74,15 @@
 				</tbody>
 			</table>
 			<br />
+
+<!-- Remove confirmation -->
+
 			<div class="remove-confirmation">
   				<p>Are you sure you want to remove John Smith?</p>
-  				<input class="button" type="submit" value="Yes, remove">
-  				<a href="/team-member-detail" class="remove-cancel">Cancel</a>
+  					<a href="/team-members">
+  						<input class="button" type="submit" value="Yes, remove">
+  					</a>	
+	  				<a href="/team-member-detail" class="remove-cancel">Cancel</a>
 			</div>
 		</div>
 		

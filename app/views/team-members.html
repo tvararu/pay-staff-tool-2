@@ -12,10 +12,12 @@
 </div>
 	
 <div class="grid-row">
-		
+	<!-- Left nav -->	
 	<div class="column-quarter">
 		{% include "includes/left-navigation.html" %}		
 	</div>
+
+	<!-- Main body -->
 
 	<div class="column-three-quarters">
 	    <h1 class="heading-large underline">Team Members</h1>
@@ -25,12 +27,16 @@
 	    				Active (7)
 	  				</h2>
   				</div>
+
+  	<!-- Invite button -->			
   				<div class="column-one-half invite-button">
-	  				<input class="button" type="submit" value="Invite a team member">
+  					<a href="/invite-team-members">
+	  					<input class="button" type="submit" value="Invite a team member">
+	  				</a>
   				</div>
-		</div>
+			</div>
 
-
+	<!-- Team members list -->
 		<div class="column-three-quarters filter-fields">
 				
 		    <table>
@@ -39,8 +45,8 @@
 		      		<tr>
 		      			<td class="permissions-type">Administrators (2)</td>
 		      		</tr>
-			      	<tr>
-			      		<td>Alison Wilson (you)</td>
+			      	<tr class='clickable-row' data-href='team-member-detail'>
+			      		<td>John Smith (you)</td>
 			      	</tr>
 			      	<tr>
 			      		<td>Lois Gonzalez</td>
@@ -53,7 +59,7 @@
 		      			<td class="permissions-type">View and refund (3)</td>
 		      		</tr>
 			      	<tr>
-			      		<td>John Smith</td>
+			      		<td>Alison Wilson</td>
 			      	</tr>
 			      	<tr>
 			      		<td>Richard Pardy</td>

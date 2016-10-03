@@ -12,10 +12,13 @@
 </div>
 	
 <div class="grid-row">
-		
+
+	<!-- Left nav -->	
 	<div class="column-quarter">
 		{% include "includes/left-navigation.html" %}		
 	</div>
+
+	<!-- Main body -->
 
 	<div class="column-three-quarters">
 	    <h1 class="heading-large underline">Team Members</h1>
@@ -45,6 +48,9 @@
               <input type="text" class="form-control" id="email">
             </div>
         </form>
+
+        <!-- Permission level -->
+
         <h3 class="heading-small">Permission level</h3>
         
         <form class="permission-main">
@@ -86,12 +92,12 @@
 		</form>
 		
 		<div class="form-group">
-	          	<a href="#">
+	          	<a href="/invite-confirmation">
             	<input class="button" type="submit" value="Send invitation email">
           		</a>  
       		  </div>
 		      <p>
-		        <a href="#">Cancel</a>
+		        <a href="/team-members">Cancel</a>
 		      </p>
 	</div>
 
