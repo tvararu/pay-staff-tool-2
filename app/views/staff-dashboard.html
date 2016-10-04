@@ -7,6 +7,11 @@
 {% block content %}
 
 <main id="content" role="main">
+
+<div class="grid-row">
+		{% include "includes/utility-navigation.html" %}
+</div>
+
 	<div class="grid-row">
 	
 <!-- Left nav -->
@@ -30,7 +35,8 @@
 				 	<div class="form-group">
 					  	<div class="dropdown">
 						  	<select name="select" class="form-control dropdown-list" id="full-name">
-							  	<option value="value1" selected>Today</option> 
+						  		<option value="value1" selected>All</option>
+							  	<option value="value1">Today</option> 
 								<option value="value2">7 days</option>
 								<option value="value3">30 days</option>
 								<option value="value4">6 months</option>
@@ -48,7 +54,7 @@
 				<table class="big-type-table">
 				    <thead>
 				      <tr>
-				        <th colspan="2">Initiated payments</th>
+				        <th colspan="2">Sucessful payments</th>
 				      </tr>
 				    </thead>
 				    <tbody>
@@ -62,26 +68,11 @@
 				<table class="big-type-table">
 				    <thead>
 				      <tr>
-				        <th colspan="2">Sucessful payments</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				      <tr class='clickable-row table-colour-green' data-href='#'>
-				        <td>548</td>
-				        <td class="right-align">£52,004</td>
-				      </tr>
-				     </tbody>
-				</table>
-
-
-				<table class="big-type-table">
-				    <thead>
-				      <tr>
 				        <th colspan="2">Failed payments</th>
 				      </tr>
 				    </thead>
 				    <tbody>
-				      <tr class='clickable-row table-colour-red' data-href='#'>
+				      <tr class='clickable-row table-colour-grey' data-href='#'>
 				        <td>34</td>
 				        <td class="right-align">£7,098</td>
 				      </tr>
@@ -102,7 +93,7 @@
 				      </tr>
 				    </thead>
 				    <tbody>
-				      <tr class='clickable-row table-colour-grey' data-href='#'>
+				      <tr class='clickable-row table-colour-red' data-href='#'>
 				        <td>4</td>
 				        <td class="right-align">£762</td>
 				      </tr>
@@ -116,8 +107,8 @@
 				      </tr>
 				    </thead>
 				    <tbody>
-				      <tr class='clickable-row table-colour-grey' data-href='#'>
-				        <td>8</td>
+				      <tr class='clickable-row table-colour-red' data-href='#'>
+				        <td>2</td>
 				        <td class="right-align">£100</td>
 				      </tr>
 				     </tbody>
